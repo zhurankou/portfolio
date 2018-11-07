@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aleksei Zhurankou">
+    <meta name="description" content="Personal portfolio website. Agenda project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✍️ Agenda</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700;Noto+Serif:400,400i" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="hero-bg">
+    <div class="container back-link">
+      <p><a class="project-menu" href="../index.html">&larr; Back</a></p>
+    </div>
+    <div class="container-project">
+      <div class="project-hero">
+        <div class="app">
+          <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
+          <video class="app-vid" poster="../images/agenda-split.svg" src="../images/agenda-header.mp4" type="video/mp4"autoplay loop>
+            <source src="../images/agenda-header.mov" type="video/mov">
+          </video>
+        </div>
+        <div class="header-description">
+          <p class="tag"><b>SCHOOL PROJECT</b> &middot; UX/UI DESIGN</p>
+          <h1><b>Agenda</b><br><span class="hide">Pomodoro App Prototype</span></h1>
+          <div class="header-info">
+            <p class="tag">ROLE</p>
+            <div class="role">
+              <div class="badge">
+                <p>RESEARCH</p>
+              </div>
+              <div class="badge">
+                <p>TESTING</p>
+              </div>
+              <div class="badge">
+                <p>PROTOTYPING</p>
+              </div>
+            </div>
+            <p class="tag">TOOLS</p>
+            <div class="tools">
+              <div>
+                <img src="../images/sketch.svg" alt="Sketch app logo">
+              </div>
+              <div>
+                <img src="../images/origami.svg" alt="Origami Studio logo">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container-project project-txt">
+      <h2>Intro</h2>
+      <div class="box-blue"> </div>
+      <p><b>Goal</b> &#8211; design a prototype of a Pomodoro-type mobile application with a To-Do functionality.</p>
+      <blockquote>
+        <i>"The Pomodoro Technique is a time management method...  The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks."
+        <br>
+        <br>
+        Pomodoro Technique, Wikipedia</i>
+      </blockquote>
+      <p><b>Approach</b></p>
+      <ol>
+        <li>Analyzing existing Pomodoro applications, identifying the target audience, common patterns, and design flaws.</li>
+        <li>Designing, prototyping, and testing user flows and interactions.</li>
+        <li>Using the feedback to iterate on design decisions and create final deliverables.</li>
+      </ol>
+    </div>
+    <div class="display dotted">
+      <div class="container">
+        <div class="tabs">
+          <a id="defaultOpenOne" class="tablinks tablinks-one" onclick="nextTabOne(event, 'tabOneOne')"><span class="number">&#10122;</span> Top Three Apps</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-one" onclick="nextTabOne(event, 'tabOneTwo')"><span class="number">&#10123; </span>Feedback Overview</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-one" onclick="nextTabOne(event, 'tabOneThree')"><span class="number">&#10124; </span>Takeaways</a>
+        </div>
+        <div id="tabOneOne" class="tabcontent tabcontent-one">
+          <div class="tab">
+            <div class="app">
+              <img src="../images/iPhoneX.png" alt="iPhone X frame">
+              <video class="app-vid" src="../images/flat-tomato.mov" controls></video>
+              <div class="logo">
+                <img class="shadow border-img" src="../images/flat-tomato.jpg" alt="Flat Tomato logo">
+                <div class="logo-txt">
+                  <h4>Flat Tomato</h4>
+                  <div class="star">
+                    <span>&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                  </div>
+                  <p>3K downloads</p>
+                </div>
+              </div>
+            </div>
+            <div class="app">
+              <img src="../images/iPhoneX.png" alt="iPhone X frame">
+              <video class="app-vid" src="../images/be-focused.mov" controls></video>
+              <div class="logo">
+                <img class="shadow border-img" src="../images/be-focused.jpg" alt="BeFocused logo">
+                <div class="logo-txt">
+                  <h4>BeFocused</h4>
+                  <div class="star">
+                    <span>&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                  </div>
+                  <p>6K downloads</p>
+                </div>
+              </div>
+            </div>
+            <div class="app">
+              <img src="../images/iPhoneX.png" alt="iPhone X frame">
+              <video class="app-vid" src="../images/focus-todo.mov" controls></video>
+              <div class="logo">
+                <img class="shadow border-img" src="../images/focus-todo.jpg" alt="Focus To-Do logo">
+                <div class="logo-txt">
+                  <h4>Focus To-Do</h4>
+                  <div class="star">
+                    <span>&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                  </div>
+                  <p>12K downloads</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tabOneTwo" class="tabcontent tabcontent-one">
+          <div class="full-wd-img">
+            <img class="shadow border-img" src="../images/agenda-journey.svg" alt="User reviews chart">
+          </div>
+        </div>
+        <div id="tabOneThree" class="tabcontent tabcontent-one">
+          <div class="tab">
+            <div class="tab-left">
+              <img class="shadow border-img" src="../images/agenda-matrix.svg" alt="App Store's most doenloaded apps' feedback comparison">
+            </div>
+            <div class="tab-right">
+              <h3>Takeaways</h3>
+              <ul>
+                <li><b>Target Audience</b> &#8211; people with difficulties of focusing on completing tasks.</li>
+                <li>Users seek for the ability to organize tasks into lists, flexibile timers and better editing, removing, and skipping tasks functionality.</li>
+                <li>Finally, the users appreciate the simplicity and clear hierarchy of the content on the screen, including tasks' titles and descriptions.</li>
+              </ul>
+              <p>Therefore, improving these features creates new <b>design opportunities</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-project project-txt">
+      <h2>Process</h2>
+      <div class="box-blue"></div>
+      <p>During the brainstorming session I came up with three general directions for tasks organization and interactions,</p>
+      <ol>
+        <li>Card stacks layout for current tasks "A-La-Tinder".</li>
+        <li>Card lists organized by categories in a panel view.</li>
+        <li><span class="highlight">App integrated with iMessage where tasks start only if they are shared with contacts</span>.</li>
+      </ol>
+      <p>In my class peer review I received positive feedback for the Idea #3. It was also my favorite one, because this interaction <span class="highlight">motivates people to acomplish tasks they planned and shared, applying the factor of acountability</span>.</p>
+      <p>Such interaction could potentually become a core feature of the product, playing a vital role in attaracting new customers.</p>
+    </div>
+    <div class="display dotted">
+      <div class="container">
+        <div class="tabs">
+          <a id="defaultOpenTwo" class="tablinks tablinks-two" onclick="nextTabTwo(event, 'tabTwoOne')"><span class="number">&#10122;</span> Brainstorming</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-two" onclick="nextTabTwo(event, 'tabTwoTwo')"><span class="number">&#10123; </span>User Flow Diagram</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-two" onclick="nextTabTwo(event, 'tabTwoThree')"><span class="number">&#10124; </span>Initial Wireframes</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-two" onclick="nextTabTwo(event, 'tabTwoFour')"><span class="number">&#10125; </span>Prototypes</a>
+        </div>
+        <div id="tabTwoOne" class="tabcontent tabcontent-two">
+          <div class="tab">
+            <div class="full-wd-img">
+              <img class="shadow border-img" src="../images/agenda-brainstorming.svg" alt="Brainstorming wireframe sketches">
+            </div>
+          </div>
+        </div>
+        <div id="tabTwoTwo" class="tabcontent tabcontent-two">
+          <div class="tab">
+            <div class="tab-left">
+              <img class="shadow border-img" src="../images/agenda-diagram-one.svg" alt="User flow diagram">
+            </div>
+            <div class="tab-right">
+              <h3>User Flow</h3>
+              <p><b>Step 1. </b>My initial idea was to eliminate unnessesary interaction in the App and use the native messaging platform to create tasks by sharing them with friends and relatives.</p>
+              <p><b>Step 2. </b>Then, the user would receive a notification and use application timer with <b>Start|Pause|Stop</b> functionality.</p>
+              <p><b>Step 3. </b>Upon complition of the task he or she would have an option to send a confirmation to the person who they shared the task with.</p>
+              <p>Initially, to maintain the acountability theme, I decided to name the application as <b>Promise</b> and the tasks as promises.</p>
+            </div>
+          </div>
+        </div>
+        <div id="tabTwoThree" class="tabcontent tabcontent-two">
+          <div class="full-wd-img">
+            <img class="shadow" src="../images/agenda-wireframes-one.svg" alt="Two versions of application wireframes">
+          </div>
+        </div>
+        <div id="tabTwoFour" class="tabcontent tabcontent-two">
+          <div class="tab version">
+            <div class="app">
+              <img src="../images/iPhoneX.png" alt="iPhone X frame">
+              <video class="app-vid" src="../images/promise-version-one.mov" controls></video>
+              <div class="logo">
+                <div class="logo-txt center">
+                  <h4>Promise</h4>
+                  <p>Version 1</p>
+                </div>
+              </div>
+            </div>
+            <div class="app app-second">
+              <img src="../images/iPhoneX.png" alt="iPhone X frame">
+              <video class="app-vid" src="../images/promise-version-two.mov" controls></video>
+              <div class="logo">
+                <div class="logo-txt center">
+                  <h4>Promise</h4>
+                  <p>Version 2</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-right">
+              <h3>Iterations</h3>
+              <p><b>Version 1. </b>In my first prototype I used default iOs UI elements and light pink colors as a refference to "pomodoro" and "pinky promise" themes.</p>
+              <p><b>Version 2. </b>In the second iteration I experimented with a different, more "squared" look. I also added the ability to add and substract 5 minutes intervals in the timer.</p>
+              <p>The changes in both iterations were based off of the feedback I received during peer reviews and testing exercises, such as "speak-out-loud".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-project project-txt">
+      <h2>Pivot</h2>
+      <div class="box-blue"> </div>
+      <p>After reviewing user testing results and feedback from my peers, <span class="highlight">I identified a few drawbacks in the existing design</span>,</p>
+      <ul>
+        <li>The transition between different applications seemed confusing. Testers would like the flow to be more intuitive.</li>
+        <li>The dependancy on sheduling task only via sending a message felt a little bit too pursuasive. Also, the experience of receiving notifications on the "friend-side" might have been disturbing.</li>
+        <li>The overall visual aestetics could have been improved.</li>
+      </ul>
+      <p>Based on these findings, <span class="highlight">I decided to rethink the application's flow from the ground up</span>, instead of iterating on my design.</p>
+      <p>I reverted back to reviews from the users of existing applications. Most of them would just like to see a <span class="highlight">simplified flow of creating tasks, list organizations, and more intuitive timer interactions</span>. Besides that, some users wished to integrate better options for reusing accomplished tasks.</p>
+      <p>A was also tend to revise the mandatory sharing option of creating task to be more user-friendly.</p>
+    </div>
+    <div class="display dotted">
+      <div class="container">
+        <div class="tabs">
+          <a id="defaultOpenThree" class="tablinks tablinks-three" onclick="nextTabThree(event, 'tabThreeOne')"><span class="number">&#10122;</span> Design Sessions</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-three" onclick="nextTabThree(event, 'tabThreeTwo')"><span class="number">&#10123; </span>User Flow Diagram</a>
+          <p class="symbol">&rbarr;</p>
+          <a class="tablinks tablinks-three" onclick="nextTabThree(event, 'tabThreeThree')"><span class="number">&#10124; </span>Wireframes</a>
+        </div>
+        <div id="tabThreeOne" class="tabcontent tabcontent-three">
+          <div class="tab">
+            <div class="tab-left">
+              <img class="shadow border-img" src="../images/agenda-participatory.svg" alt="Wireframes with design sketches">
+            </div>
+            <div class="tab-right">
+              <h3>Design Sessions</h3>
+              <p>During participatory design sessions with pomodoro apps' users, we came up with three main userflows.</p>
+              <p>Based on the <a href="https://en.wikipedia.org/wiki/Hick%27s_law" target="_blank">Hick's Law</a>, "the more choices a person is presented with, the longer the person will take to reach a decision."</p>
+              <p><b>Session 3</b> results in this case looked very promissing. It had the least amount of screens and navigation choices and at the same time provided all the nessesary options.</p>
+            </div>
+          </div>
+        </div>
+        <div id="tabThreeTwo" class="tabcontent tabcontent-three">
+          <div class="tab">
+            <div class="tab-left">
+              <img class="shadow border-img" src="../images/agenda-diagram-two.svg" alt="Wireframes with design sketches">
+            </div>
+            <div class="tab-right">
+              <h3>User Flow</h3>
+              <p><b>Main Screen</b>. Upon openning the app, user would add new tasks to make a To-Do list, then select them and choose between <b>Delete | Start Timer</b> options.</p>
+              <p><b>Right Screen</b> would have the list with active Timer and the To-Do list. It also would allow to change time for Work and Rest intervals.</p>
+              <p><b>Left Screen</b> would be giving an option to scroll through the past tasks in Feed and Calendar views and repeat them by adding to the To-Do list in the Main Screen.</p>
+            </div>
+          </div>
+        </div>
+        <div id="tabThreeThree" class="tabcontent tabcontent-three">
+          <div class="full-wd-img">
+            <img class="shadow border-img" src="../images/agenda-wireframes-two.svg" alt="Application wireframes">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="results-bg-one">
+      <div class="container-project" >
+        <h2>Results</h2>
+        <div class="box-blue"> </div>
+        <div class="project-hero results">
+          <div class="app">
+            <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
+            <video class="app-vid" controls>
+              <source src="../images/agenda-outcome-one.mp4" type="video/mp4">
+              <source src="../images/agenda-outcome-one.mov" type="video/mov">
+            </video>
+          </div>
+          <div class="header-description">
+            <p class="tag"><b>01</b></p>
+            <h3><b>Tasks</b></h3>
+            <p>The interaction starts in the <b>Tasks</b> screen with adding tasks. It also allows the users to add to <b>Agenda | Delete</b> these tasks</p>
+          </div>
+        </div>
+        <div class="project-hero results">
+          <div class="header-description">
+            <p class="tag"><b>02</b></p>
+            <h3><b>Agenda</b></h3>
+            <p>Current tasks screen. Provides the ability to move these tasks up and down the list, set <b>Intervals</b>, and start the <b>Timer</b></p>
+          </div>
+          <div class="app">
+            <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
+            <video class="app-vid" controls>
+              <source src="../images/agenda-outcome-two.mp4" type="video/mp4">
+              <source src="../images/agenda-outcome-two.mov" type="video/mov">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="results-bg-two">
+      <div class="container-project" >
+        <div class="project-hero results">
+          <div class="app">
+            <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
+            <video class="app-vid" controls>
+              <source src="../images/agenda-outcome-three.mp4" type="video/mp4">
+              <source src="../images/agenda-outcome-three.mov" type="video/mov">
+            </video>
+          </div>
+          <div class="header-description">
+            <p class="tag"><b>03</b></p>
+            <h3><b>Timer</b></h3>
+            <p>The current task indicator changes to solid "white", when the timer starts. The <b>Next</b> button allows the users to skip the current task</p>
+          </div>
+        </div>
+        <div class="project-hero results">
+          <div class="header-description">
+            <p class="tag"><b>04</b></p>
+            <h3><b>Archive</b></h3>
+            <p>Completed tasks are being saved in the <b>Archive</b>. The users are able to view these tasks in the <b>Feed | Calendar</b> views and choose them to repeate</p>
+          </div>
+          <div class="app">
+            <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
+            <video class="app-vid" controls>
+              <source src="../images/agenda-outcome-four.mp4" type="video/mp4">
+              <source src="../images/agenda-outcome-four.mov" type="video/mov">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="display dotted">
+      <div class="container-project details">
+        <h2>Details</h2>
+        <div class="box-blue"> </div>
+      </div>
+      <div class="container">
+        <div class="tab">
+          <div class="tab-left">
+            <img src="../images/agenda-details-colors.svg" alt="App's color theme">
+          </div>
+          <div class="tab-right">
+            <h3>Colors</h3>
+            <p>I chose to use a combination of pure <b>Black (#000000)</b>, <b>White (#FFFFFF)</b>, and medium-dark <b>Grey (#999999)</b> colors to provide better contrast for the accessibility. The primary Blue has a light Purple tone, which associates with stability of Blue and the energy of Red.</p>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="tab-right">
+            <h3>Typography</h3>
+            <p>My typography choice was the <b>Circular Std</b> which is a modern, friendly Sans Serif typeface with simple geometrical forms. It provides a veriety of weights and great readability on screens.</p>
+          </div>
+          <div class="tab-left">
+            <img src="../images/agenda-details-typo.svg" alt="App's color theme">
+          </div>
+        </div>
+        <div class="tab">
+          <div class="tab-left">
+            <img src="../images/agenda-details-icons.svg" alt="App's color theme">
+          </div>
+          <div class="tab-right">
+            <h3>Icons</h3>
+            <p>I desidned a set of icons using simple geometrical shapes with rounded corners which matches the curves of the Circular Std typeface. The <b>Play | Pause | Next</b> icons contain conventional meaning for better usability.</p>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="tab-right">
+            <h3>Spacing</h3>
+            <p>To mantain the elements' consistancy across the screen, I used the <a href="https://medium.com/@zhurankou/productivity-8-point-spacing-template-for-sketch-4c3da2f0dd56" target="_blank">8-pt Spacing Template</a> for Sketch. I developped this symbol library, using Spacing method described in Google Material Design, to speed up my design workflows.</p>
+          </div>
+          <div class="tab-left">
+            <img src="../images/agenda-details-space.svg" alt="App's color theme">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p class="links">
+      <a href="mailto:aleksei@zhurankou.com" target="_blank">Email</a> &middot;
+      <a href="../images/resume.pdf" target="_blank">Resume</a> &middot;
+      <a href="https://www.linkedin.com/in/zhurankou/" target="_blank">LinkedIn</a>  &middot;
+      <a href="https://twitter.com/zhurankou" target="_blank">Twitter</a></p>
+    <p class="copy">&copy; zhurankou</p>
+  </footer>
+  <script src="../js/index.js"></script>
+</body>
+</html>
