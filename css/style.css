@@ -26,8 +26,18 @@
 }
 
 @keyframes homeImgZ {
-  from {transform: scale(.95);}
-  to {transform: scale(1);}
+    from {transform: scale(.95);}
+    to {transform: scale(1);}
+}
+
+@keyframes projectTabZ {
+    from {transform: scale(.97);}
+    to {transform: scale(1);}
+}
+
+@keyframes projectTabOpc {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 body {
@@ -115,6 +125,10 @@ blockquote {
 .border-img {
   border: 1px solid var(--grey-30);
   border-radius: 3px;
+}
+
+.bg {
+  background-color: var(--grey-40);
 }
 
 .dotted {
@@ -227,11 +241,6 @@ blockquote {
   align-items: center;
 }
 
-.header-description {
-  margin-top: 16px;
-  text-align: center;
-}
-
 .header-info {
   display: none;
 }
@@ -281,6 +290,7 @@ a.active {
 
 .tabcontent {
   display: none;
+  animation: projectTabOpc 1s ease, projectTabZ 1.5s ease;
 }
 
 .tablinks {
@@ -401,13 +411,13 @@ a.active {
 }
 
 @media (min-width: 992px) {
-  .home-header-bg {
-    background-image: url(../images/home-header-bg.svg);
+  .home-hero-bg {
+    background-image: url(../images/home-hero-bg.svg);
     background-repeat: no-repeat;
     background-size: 100%;
   }
 
-  .hero-bg {
+  .agenda-hero-bg {
     background-image: url(../images/agenda-hero-bg.svg);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -472,8 +482,8 @@ a.active {
     padding-bottom: 36px;
   }
 
-  .header-description {
-    width: 320px;
+  .description-hero {
+    width: 360px;
     text-align: left;
   }
 
@@ -551,7 +561,7 @@ a.active {
   }
 
   .details {
-    margin: 72px auto 0 auto;
+    margin: 64px auto 0 auto;
   }
 }
 
