@@ -192,6 +192,10 @@ blockquote {
   border-radius: 50%;
 }
 
+.avatar a {
+  box-shadow: none;
+}
+
 .project {
   display: flex;
   flex-direction: column;
