@@ -199,7 +199,7 @@ blockquote {
   margin-bottom: 40px;
 }
 
-.home-img {
+.home-img, {
   animation: homeImgZ 1.5s ease;
   transition-delay: 2s;
 }
@@ -566,7 +566,7 @@ a.active {
   }
 
   .details {
-    margin: 64px auto 0 auto;
+    margin: 48px auto 0 auto;
   }
 }
 
