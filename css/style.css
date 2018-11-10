@@ -238,9 +238,10 @@ blockquote {
 }
 
 /* Project page */
-.back-link p {
-  margin: 0;
+.nav-link {
   padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .project-hero {
