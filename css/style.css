@@ -501,18 +501,20 @@ a.active {
   .nightmare-hero-bg {
     background-image: url(../images/nightmare-hero-bg.svg);
     background-repeat: no-repeat;
-    width: 100%;
+    background-size: 100%;
   }
 
   .results-bg-one {
     padding-top: 96px;
     background-image: url(../images/agenda-results-bg-one.svg);
     background-repeat: no-repeat;
+    background-size: 100%;
   }
 
   .results-bg-two {
     background-image: url(../images/agenda-results-bg-two.svg);
     background-repeat: no-repeat;
+    background-size: 100%;
   }
 
   /* Home page */
