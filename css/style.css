@@ -11,10 +11,12 @@
   /* colors */
   --white-00: #FFFFFF;
   --white-10: #FCFCFF;
-  --black-00: #000000;
-  --black-10: #151724;
-  --black-20: #DCDFED;
-  --black-30: #D9DEE5;
+  --black-00: #020202;
+  --black-10: #0A0B0E;
+  --black-20: #0D0F13;
+  --black-30: #232428;
+  --black-40: #7B7C7E;
+  --black-50: #BDBDBE;
   --grey-00: #80839E;
   --grey-10: #ACB2D1;
   --grey-20: #D8DBEE;
@@ -24,6 +26,7 @@
   --blue-10: #9BAFEB;
   --blue-20: #CBD0E9;
   --yellow-00: #EDB234;
+  --red-00: #ED1F24;
   /* fonts */
   --regular: 400;
   --bold: 700;
@@ -120,7 +123,7 @@ blockquote {
 }
 
 .shadow {
-  box-shadow: 0 6px 24px var(--black-30);
+  box-shadow: 0 6px 24px var(--grey-20);
 }
 
 .highlight {
@@ -132,12 +135,33 @@ blockquote {
   border-radius: 3px;
 }
 
-.bg {
-  background-color: var(--grey-40);
+.blue {
+  color: var(--blue-00);
+}
+
+.red {
+  color: var(--red-00);
+}
+
+.blue-bg {
+  background-color: var(--blue-00);
+}
+
+.red-bg {
+  background-color: var(--red-00);
+}
+
+.black-bg {
+  background-color: var(--black-00);
 }
 
 .dotted {
   background: linear-gradient(90deg, var(--grey-40) 20px, transparent 50%) center, linear-gradient(var(--grey-40) 20px, transparent 50%) center, var(--grey-20);
+  background-size: 22px 22px;
+}
+
+.dotted-dark {
+  background: linear-gradient(90deg, var(--black-10) 20px, transparent 50%) center, linear-gradient(var(--black-10) 20px, transparent 50%) center, var(--black-30);
   background-size: 22px 22px;
 }
 
@@ -215,7 +239,7 @@ blockquote {
 }
 
 .home-img img:hover {
-  box-shadow: 0 4px 28px var(--black-30);
+  box-shadow: 0 4px 28px var(--grey-20);
   transition: box-shadow .65s, transform .65s ease;
   transform: scale(1.01);
 }
@@ -255,11 +279,10 @@ blockquote {
   display: none;
 }
 
-.box-blue {
+.box {
   margin: 12px 0 32px 0;
   width: 24px;
   height: 3px;
-  background-color: var(--blue-00);
 }
 
 .display {
@@ -388,7 +411,49 @@ a.active {
   transition: box-shadow .3s ease;
 }
 
+/* Nightmare */
+.nightmare-bg {
+  background-color: var(--black-00);
+}
+
+.nightmare-hero img {
+  width: 320px;
+}
+
+.nightmare-bg h1,
+.nightmare-bg p,
+.nightmare-bg h2 {
+  color: var(--grey-40);
+}
+
+.grey-txt h2,
+.grey-txt p {
+  color: var(--black-40);
+}
+
+.nightmare-img img {
+  margin: 48px auto 48px auto;
+  box-shadow: 0 4px 28px var(--black-00);
+}
+
+.nightmare > .full-wd-img {
+  margin-bottom: 48px;
+}
+
+.red:hover {
+  box-shadow: inset 0 -8px 0 var(--black-40);
+  transition: box-shadow .3s ease;
+}
+
 /* Footer */
+.left-link {
+  text-align: left;
+}
+
+.right-link {
+  text-align: right;
+}
+
 .links {
   margin-top: 40px;
   color: var(--blue-00);
@@ -431,6 +496,12 @@ a.active {
     background-image: url(../images/agenda-hero-bg.svg);
     background-repeat: no-repeat;
     background-size: 100%;
+  }
+
+  .nightmare-hero-bg {
+    background-image: url(../images/nightmare-hero-bg.svg);
+    background-repeat: no-repeat;
+    width: 100%;
   }
 
   .results-bg-one {
@@ -532,6 +603,19 @@ a.active {
     border: 1px solid var(--grey-10);
     color: var(--grey-00);
     background-color: var(--grey-20);
+  }
+
+  .badge-nightmare p {
+    margin-right: 8px;
+    padding: 4px 6px;
+    display: inline-block;
+    line-height: .9rem;
+    font-size: .5rem;
+    font-weight: var(--regular);
+    border-radius: 4px;
+    border: 1px solid var(--grey-00);
+    color: var(--grey-40);
+    background-color: var(--black-30);
   }
 
   .tabs {
