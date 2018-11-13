@@ -8,6 +8,7 @@
     <title>✍️ Agenda</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700;Noto+Serif:400,400i" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
   <header class="agenda-hero-bg">
@@ -335,7 +336,11 @@
       <div class="container-project" >
         <h2>Results</h2>
         <div class="box blue-bg"> </div>
-        <div class="project-hero results">
+        <div
+          class="project-hero results reverse"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-easing="ease">
           <div class="app">
             <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
             <video
@@ -354,12 +359,11 @@
             <p>The interaction starts in the <b>Tasks</b> screen with adding tasks. It also allows the users to <b>Delete</b> these tasks, or add them to the <b>Agenda</b></p>
           </div>
         </div>
-        <div class="project-hero results">
-          <div class="description-hero">
-            <p class="tag"><b>02</b></p>
-            <h3><b>Agenda</b></h3>
-            <p>Current tasks screen. Provides the ability to move these tasks up and down the list, set <b>Intervals</b>, and start the <b>Timer</b></p>
-          </div>
+        <div
+          class="project-hero results"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-easing="ease">
           <div class="app">
             <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
             <video
@@ -372,12 +376,21 @@
               loop>
             </video>
           </div>
+          <div class="description-hero">
+            <p class="tag"><b>02</b></p>
+            <h3><b>Agenda</b></h3>
+            <p>Current tasks screen. Provides the ability to move these tasks up and down the list, set <b>Intervals</b>, and start the <b>Timer</b></p>
+          </div>
         </div>
       </div>
     </div>
     <div class="results-bg-two">
       <div class="container-project" >
-        <div class="project-hero results">
+        <div
+          class="project-hero results reverse"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-easing="ease">
           <div class="app">
             <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
             <video
@@ -396,12 +409,11 @@
             <p>The current task indicator changes to solid "white", when the timer starts. The <b>Next</b> button allows the users to skip the current task</p>
           </div>
         </div>
-        <div class="project-hero results">
-          <div class="description-hero">
-            <p class="tag"><b>04</b></p>
-            <h3><b>Archive</b></h3>
-            <p>Completed tasks are being saved in the <b>Archive</b>. The users are able to view these tasks in the <b>Feed | Calendar</b> views and choose them to repeat</p>
-          </div>
+        <div
+          class="project-hero results"
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          data-aos-easing="ease">
           <div class="app">
             <img src="../images/iPhoneX.png" alt="iPhone X with Agenda app interactions">
             <video
@@ -413,6 +425,11 @@
               muted
               loop>
             </video>
+          </div>
+          <div class="description-hero">
+            <p class="tag"><b>04</b></p>
+            <h3><b>Archive</b></h3>
+            <p>Completed tasks are being saved in the <b>Archive</b>. The users are able to view these tasks in the <b>Feed | Calendar</b> views and choose them to repeat</p>
           </div>
         </div>
       </div>
@@ -486,5 +503,9 @@
     <p class="copy">&copy; zhurankou</p>
   </footer>
   <script src="../js/index.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
