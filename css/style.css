@@ -98,8 +98,8 @@ a {
 }
 
 a:hover {
-  box-shadow: inset 0 -8px 0 var(--grey-40);
-  transition: box-shadow .3s ease;
+  box-shadow: inset 0 -16px 0 var(--grey-40);
+  transition: box-shadow .5s ease;
 }
 
 ol, ul {
@@ -239,8 +239,6 @@ blockquote {
   width: 312px;
   background: var(--grey-40);
 }
-
-
 
 .home-img a:hover {
   box-shadow: none;
