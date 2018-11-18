@@ -47,6 +47,10 @@ footer {
   align-items: center;
 }
 
+.gap-top-32 {
+  padding-top: 32px;
+}
+
 /* Typography */
 h1, h2, h3 {
   margin: 0;
@@ -325,6 +329,12 @@ blockquote {
   background: none;
 }
 
+.box {
+  margin: 12px 0 32px 0;
+  width: 32px;
+  height: 4px;
+}
+
 .tools {
   margin-top: 8px;
   display: flex;
@@ -382,10 +392,6 @@ blockquote {
 
 .display-half {
   width: 320px;
-}
-
-.display-full-img {
-  padding-top: 32px;
 }
 
 .Y-center {
@@ -554,6 +560,7 @@ blockquote {
   .links {
     padding-top: 40px;
   }
+
 
   .gap-top {
     padding-top: 80px;
