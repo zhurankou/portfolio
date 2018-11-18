@@ -253,7 +253,7 @@ blue-lt-bg {
 
 .nav-link {
   margin: 0;
-  padding: 8px 64px 8px 64px;
+  padding: 8px 64px 0 64px;
   display: flex;
   justify-content: space-between;
 }
@@ -332,6 +332,9 @@ blue-lt-bg {
 }
 
 /* Project page */
+.hero {
+  padding: 24px;
+}
 .tools {
   margin-top: 8px;
   display: flex;
