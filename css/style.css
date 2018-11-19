@@ -1,10 +1,10 @@
 * {
   box-sizing: border-box;
-  transition: all .3s ease-in-out;
+  transition: all .3s ease-out;
 }
 
 *:hover {
-  transition: all .3s ease-in-out;
+  transition: all .3s ease-out;
 }
 
 :root {
@@ -32,6 +32,22 @@
   --reg: 400;
   --med: 600;
   --bold: 700;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { transform: translate3d(0,40px,0) }
+  to { transform: translate3d(0,0,0); opacity: 1 }
+}
+
+@keyframes zoomIn {
+    from {transform: scale(.9);}
+    to {transform: scale(1);}
 }
 
 /* Sections */
@@ -310,19 +326,21 @@ blockquote {
 }
 
 /* Project page */
-.hero-txt {
-  padding-top: 8px;
-}
-
 .project-hero {
+  animation: fadeIn 1.5s ease-out;
   padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.agenda .hero-bg {
-  background: none;
+.hero-txt {
+  padding-top: 8px;
+  animation: fadeInUp .75s ease-out;
+}
+
+.hero-img {
+  animation: zoomIn .75s ease-out;
 }
 
 .tools {
@@ -452,7 +470,7 @@ blockquote {
 }
 
 /* Nightmare */
-.pic img {
+.nightmare .hero-img img {
   width: 320px;
 }
 
