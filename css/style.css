@@ -310,10 +310,6 @@ blockquote {
 }
 
 /* Project page */
-.hero {
-  padding: 24px;
-}
-
 .hero-txt {
   padding-top: 8px;
 }
@@ -457,7 +453,7 @@ blockquote {
 
 /* Nightmare */
 .pic img {
-  width: 560px;
+  width: 320px;
 }
 
 .nightmare a {
@@ -474,7 +470,7 @@ blockquote {
 }
 
 .nightmare-photo img{
-  width: 1200px;
+  width: 320px;
 }
 
 /* Footer */
@@ -575,7 +571,7 @@ blockquote {
 
   /* Project */
   .project-hero {
-    padding: 32px 64px 32px 64px;
+    padding: 32px 152px 32px 64px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -624,12 +620,12 @@ blockquote {
   }
 
   /* Agenda */
-  .agenda .hero-bg {
+  /* .agenda .hero-bg {
     width: 480px;
     background-image: url(../images/agenda-hero-bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
-  }
+  } */
 
   .apps {
     display: flex;
@@ -645,5 +641,14 @@ blockquote {
   .close-right {
     padding-right: 0;
     padding-left: 128px;
+  }
+
+  /* Nightmare */
+  .pic img {
+    width: 376px;
+  }
+
+  .nightmare-photo img{
+    width: 1200px;
   }
 }
