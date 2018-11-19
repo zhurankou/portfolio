@@ -41,14 +41,14 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+main {
+  margin: auto auto;
+}
+
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.gap-top-32 {
-  padding-top: 32px;
 }
 
 /* Typography */
@@ -68,7 +68,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: var(--bold);
 }
 
@@ -329,12 +329,6 @@ blockquote {
   background: none;
 }
 
-.box {
-  margin: 12px 0 32px 0;
-  width: 32px;
-  height: 4px;
-}
-
 .tools {
   margin-top: 8px;
   display: flex;
@@ -394,22 +388,17 @@ blockquote {
   width: 320px;
 }
 
-.Y-center {
-  align-self: center;
+.display h3 {
+  padding-bottom: 16px;
 }
 
-.reverse {
-  flex-direction: row-reverse;
-}
-
-/* Agenda */
 .apps {
   display: flex;
   flex-direction: column;
 }
 
 .app {
-  padding: 16px 0 32px 0;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,6 +416,15 @@ blockquote {
   border-radius: 20px;
 }
 
+.Y-center {
+  align-self: center;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Agenda */
 .logo {
   display: flex;
   align-items: center;
@@ -476,7 +474,7 @@ blockquote {
 }
 
 .nightmare-photo img{
-  width: 320px;
+  width: 1200px;
 }
 
 /* Footer */
@@ -560,7 +558,6 @@ blockquote {
   .links {
     padding-top: 40px;
   }
-
 
   .gap-top {
     padding-top: 80px;
@@ -648,10 +645,5 @@ blockquote {
   .close-right {
     padding-right: 0;
     padding-left: 128px;
-  }
-
-  /* Nightmare */
-  .nightmare-photo img{
-    width: 1200px;
   }
 }
