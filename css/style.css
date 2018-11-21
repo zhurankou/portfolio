@@ -10,7 +10,7 @@
 :root {
   /* colors */
   --white-00: #FFFFFF;
-  --white-10: #FCFCFF;
+  --white-10: #D9DEE5;
   --black-00: #020202;
   --black-10: #0A0B0E;
   --black-20: #0D0F13;
@@ -158,6 +158,10 @@ blockquote {
   color: var(--white-00);
 }
 
+.white-soft {
+  color: var(--white-10);
+}
+
 .grey {
   color: var(--grey-10);
 }
@@ -204,7 +208,7 @@ blockquote {
 }
 
 .black-bg {
-  background-color: var(--black-00);
+  background-color: var(--black-10);
 }
 
 .dotted-bg {
@@ -213,7 +217,7 @@ blockquote {
 }
 
 .dotted-dk-bg {
-  background: linear-gradient(90deg, var(--black-00) 20px, transparent 50%) center, linear-gradient(var(--black-00) 20px, transparent 50%) center, var(--black-30);
+  background: linear-gradient(90deg, var(--black-10) 20px, transparent 50%) center, linear-gradient(var(--black-10) 20px, transparent 50%) center, var(--black-30);
   background-size: 22px 22px;
 }
 
