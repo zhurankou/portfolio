@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60733356-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-60733356-7');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aleksei Zhurankou">
+    <meta name="description" content="Personal portfolio website. Agenda project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPSS 🎓</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+</head>
+<body class="project gpss grey-lt-bg">
+  <header class="hero">
+    <div class="container nav-link">
+      <div class="left-link">
+        <p><a href="../index.html">&larr; Home</a></p>
+      </div>
+    </div>
+    <div class="container project-hero dotted-bg">
+      <div class="hero-txt">
+        <h1><span class="blue">GPSS</span><br><span>UW Website<br> Redesign</span></h1>
+        <p class="font-sm"><b>GPSS PROJECT</b> &middot; UX/UI DESIGN</p>
+      </div>
+      <div class="app hero-img">
+        <img src="../images/gpss-hero.svg" alt="old Mac with a s reenshot of old GPSS website vs new iMac with a screenshot of a redesign GPSS website ">
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-left">
+          <h2>Intro</h2>
+        </div>
+        <div class="copy-right">
+          <div class="copy-three-columns">
+            <div class="one">
+              <p><b>Duration</b></p>
+              <p>August—October 2016</p>
+            </div>
+            <div class="two">
+              <p><b>Skills</b></p>
+              <p>Research <br>
+                 Prototyping <br>
+                 Testing <br>
+                 Coding</p>
+            </div>
+            <div class="three">
+              <p><b>Tools</b></p>
+              <div class="tools">
+                <img src="../images/illustrator.svg" alt="Sketch app logo">
+                <img src="../images/wp.svg" alt="Origami Studio logo">
+              </div>
+            </div>
+          </div>
+          <p><b>Problem</b>
+          <p>I was hired to redesign the Graduate and Professional Student Senate (GPSS) of the University of Washington website. It was super outdated visually, its overall information architecture was chaotic, the menu consisted of duplicated pages, and many links were leading to an empty content.  All these discrepancies were causing low engagement and generally negative feedback from GPSS' users.</p>
+          <p>Here's the <a href="http://web.archive.org/web/20160403103148/http://depts.washington.edu/gpss/">link</a> to the old version of the GPSS website.</p>
+          <p><b>Approach</b></p>
+          <ol>
+            <li>Interviewing GPSS officers to acquire general knowledge about their office structure, operations, and website's usage.</li>
+            <li>Conducting heuristic evaluation of current website, learning about its overall functionality, and identifying existing flaws.</li>
+            <li>Conducting a participatory design session with various categories of the users, identifying common user flows and building up the website's information architecture.</li>
+            <li>Prototyping page layouts, testing, iterating and building them in the Wordpress CMS.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-left">
+          <h2>Process</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-interviews.svg" alt="notes from interviews">
+      </div>
+      <div class="display display-half blue">
+        <h3>Interviews' Insights</h3>
+        <p>GPSS is an official government for UW graduate students. It consists of several committees and being governed by senators, representing each committee.</p>
+        <p>Main user categories by their use cases:</p>
+        <ol>
+          <li><b>Graduate students</b>—seeking for events and funding information.</li>
+          <li><b>GPSS officers and staff</b>—using an archive and calendars.</li>
+          <li><b>Fresh or potential students</b>—searching for general information about GPSS.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-full blue"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <h3>Heuristic Evaluation</h3>
+        <div class="display-full-img gap-top-32">
+          <img class="shadow " src="../images/gpss-heuristics.svg" alt="Flaws of the old GPSS website">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-left"></div>
+        <div class="copy-right">
+          <p>As it's shown on the image above the old GPSS website failed several <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">Jacob Nielsen's Heuristic Principals</a>: </p>
+          <ul>
+            <li><b>Consistency and standards</b>—the top level navigation led to duplicate, or even empty pages.</li>
+            <li><b>Flexibility and efficiency of use</b>—the breadcrumb and page navigations had wrong, or no indications.</li>
+            <li><b>Aesthetic and minimalist design</b>—the overall website's design was clearly outdated.</li>
+          </ul>
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-map.svg" alt="notes from interviews">
+      </div>
+      <div class="display display-half blue">
+        <h3>Affinity Map</h3>
+        <p>To rebuild website's information architecture I organized a participatory design session with GPSS' officers, staff and various categories of users (7 participants totally).</p>
+        <p>We started with laying out website's content elements on sticky notes, then sorted them into categories, and finally organized by pages, keeping in mind specific use cases.</p>
+        <p>To receive additional feedback, we displayed the board for a couple weeks in the office, which allowed us to make several significant improvements.</p>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-full blue"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <h3>Diagram</h3>
+        <div class="display-full-img gap-top-32">
+          <img class="shadow" src="../images/gpss-diagram.svg" alt="New website diagram">
+        </div>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-full blue"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <h3>Wireframes: Homepage</h3>
+        <div class="display-full-img gap-top-32">
+          <img class="shadow" src="../images/gpss-wireframes-one.svg" alt="Website's wireframes iterations home page">
+        </div>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-full blue"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <h3>Wireframes: Content Page</h3>
+        <div class="display-full-img gap-top-32">
+          <img class="shadow" src="../images/gpss-wireframes-two.svg" alt="Website's wireframes iterations content page">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-left"></div>
+        <div class="copy-right">
+          <p>During the second round of interviews, I tested website's prototypes with several GPSS staff members and Grad students.</p>
+          <p>As a result, I added three panel-links to the most useful elements of the website to the bottom of the Homepage and used accordions for the long-form content of a page to decrease the amount of scrolling.</p>
+          <p>On the content page, I added Useful Links, GPSS Events, and Follow Us elements to the right side widget area. This section is similar across all of the website's pages (except Homepage), which allows the users to interact with the site in a familiar pattern.</p>
+          <p>When the wireframes were finalized and approved by the GPSS' management, I started to build the website pages in Wordpress CMS, using UW's Wordpress theme and <a href="https://www.washington.edu/brand/" target="_blank">Style Guides</a>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-left">
+          <h2>Results</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half gpss-results"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-results-one.png" alt="Homepage screenshot">
+      </div>
+      <div class="display display-half">
+        <h3>Homepage</h3>
+        <p>The slider section contains the most current events and article links. Right below is the section for major announcements (eventually replaced with article feed.)</p>
+        <p>The aside section: Twitter Feed, and Messages from the GPSS executives.</p>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half gpss-results"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-results-two.png" alt="Content page screenshot">
+      </div>
+      <div class="display display-half">
+        <h3>Content Page</h3>
+        <p>The top part of the page contains an excerpt with a description of the content. The long-form content is hidden inside the accordion elements.</p>
+        <p>The right aside elements are similar across all the content pages of the website.</p>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half gpss-results"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-results-three.png" alt="Records page screenshot">
+      </div>
+      <div class="display display-half">
+        <h3>Records Page</h3>
+        <p>This page contains links to GPSS' archive, organized by years, months, and dates. The links are arranged into the accordion form factor for the sake of usability.</p>
+      </div>
+    </div>
+    <div class="container-display">
+      <div class="display display-half gpss-results"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease">
+        <img class="shadow" src="../images/gpss-results-four.png" alt="Contact page screenshot">
+      </div>
+      <div class="display display-half">
+        <h3>Contact Us Page</h3>
+        <p>The page contains a directory of the GPSS staff, organized by management level. Every contact has Name, Position, Email, and Office Hours information.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copy">
+        <div class="copy-up">
+          <h2>Takeaways</h2>
+          <div class="box blue-bg"></div>
+        </div>
+        <div class="copy-right">
+          <p>While working on this project I learned how to work within design constraints, such as following UW Brand Guidelines and complying with Wordpress CMS platform requirements.</p>
+          <p>This was also a great experience as my first time working on the real-life project, dealing with real stakeholders and users.</p>
+          <p>Thank you for reading and let's get in touch!</p>
+        </div>
+      </div>
+    </div>
+    <div class="container nav-link">
+      <div class="left-link">
+        <p><a href="../index.html">&larr; Home</a></p>
+      </div>
+      <div class="right-link">
+        <p><a href="nightmare.html">Next &rarr;</a></p>
+        <p><small><b>Nightmare at The Museum</b><br>Event Poster</small></p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p class="links">
+      <a href="mailto:aleksei@zhurankou.com" target="_blank">Email</a> &middot;
+      <a href="../images/resume.pdf" target="_blank">Resume</a> &middot;
+      <a href="https://www.linkedin.com/in/zhurankou/" target="_blank">LinkedIn</a>  &middot;
+      <a href="https://twitter.com/zhurankou" target="_blank">Twitter</a></p>
+    <p class="copyright"><b>&copy; zhurankou</b></p>
+  </footer>
+  <script src="../js/index.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

@@ -494,6 +494,14 @@ blockquote {
   width: 320px;
 }
 
+/* GPSS */
+.gpss .hero-img img,
+.gpss-results img {
+  width: 320px;
+}
+
+
+
 /* Footer */
 .left-link {
   text-align: left;
@@ -640,14 +648,6 @@ blockquote {
     width: 600px;
   }
 
-  /* Agenda */
-  /* .agenda .hero-bg {
-    width: 480px;
-    background-image: url(../images/agenda-hero-bg.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-  } */
-
   .apps {
     display: flex;
     flex-direction: row;
@@ -665,11 +665,13 @@ blockquote {
   }
 
   /* Nightmare */
-  .pic img {
-    width: 376px;
-  }
-
   .nightmare-photo img{
     width: 1200px;
+  }
+
+  /* GPSS */
+  .gpss .hero-img img,
+  .gpss-results img {
+    width: 560px;
   }
 }
