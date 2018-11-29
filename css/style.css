@@ -1,11 +1,4 @@
-* {
-  box-sizing: border-box;
-  transition: all .3s ease-out;
-}
-
-*:hover {
-  transition: all .3s ease-out;
-}
+@import url('https://rsms.me/inter/inter-ui.css');
 
 :root {
   /* colors */
@@ -30,8 +23,20 @@
   --red-00: #ED1F24;
   /* fonts */
   --reg: 400;
-  --med: 600;
+  --med: 500;
+  --sem-bold: 600;
   --bold: 700;
+  --x-bold: 800;
+  --black: 900;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all .3s ease-out;
+}
+
+*:hover {
+  transition: all .3s ease-out;
 }
 
 /* Animation */
@@ -46,15 +51,15 @@
 }
 
 @keyframes zoomIn {
-    from {transform: scale(.9);}
-    to {transform: scale(1);}
+  from {transform: scale(.9);}
+  to {transform: scale(1);}
 }
 
 /* Sections */
 body {
   margin: 0;
   background-color: var(--white-00);
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Inter UI';
 }
 
 main {
@@ -75,23 +80,22 @@ h1, h2, h3 {
 h1 {
   font-size: 2.5rem;
   line-height: 3rem;
-  font-weight: var(--bold);
+  font-weight: var(--x-bold);
 }
 
 h2 {
   font-size: 1.75rem;
+  line-height: 2rem;
   font-weight: var(--bold);
 }
 
 h3 {
   font-size: 1.2rem;
-  font-weight: var(--bold);
 }
 
 p, li, h4 {
   font-size: 1.1rem;
   line-height: 2rem;
-  font-weight: var(--reg);
 }
 
 li {
@@ -100,13 +104,13 @@ li {
 
 a {
   margin: 0;
-  font-weight: var(--bold);
   text-decoration: none;
   color: var(--blue-00);
+  font-weight: var(--sem-bold);
 }
 
 a:hover {
-  box-shadow: inset 0 -16px 0 var(--grey-40);
+  box-shadow: inset 0 -12px 0 var(--grey-40);
   transition: box-shadow .3s ease;
 }
 
@@ -124,8 +128,9 @@ blockquote {
 }
 
 .font-sm {
+  margin: 0;
+  padding-top: 8px;
   font-size: .75rem;
-  line-height: 1rem;
 }
 
 .font-x-sm {
@@ -239,12 +244,11 @@ blockquote {
 .home h1 {
   font-size: 2rem;
   line-height: 2.2rem;
-  font-weight: var(--bold);
 }
 
 .home h2 {
-  font-size: 1.3rem;
-  line-height: 1.3rem;
+  font-size: 1.25rem;
+  line-height: 1rem;
   font-weight: var(--bold);
 }
 
@@ -500,8 +504,6 @@ blockquote {
   width: 320px;
 }
 
-
-
 /* Footer */
 .left-link {
   text-align: left;
@@ -572,7 +574,7 @@ blockquote {
   }
 
   .description {
-    margin-top: 556px;
+    margin-top: 564px;
     margin-left: 32px;
   }
 
