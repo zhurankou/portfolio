@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
 :root {
   /* colors */
   --white-00: #FFFFFF;
@@ -37,11 +39,15 @@
   transition: all .3s ease-out;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Inter UI';
-  src: url(../fonts/Inter-UI.var.ttf);
+  src: url('../fonts/Inter-UI.var.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Inter UI';
+  src: url('../fonts/Inter-UI.var.ttf') format('ttf');
+} */
 
 /* Animation */
 @keyframes fadeIn {
@@ -63,7 +69,7 @@
 body {
   margin: 0;
   background-color: var(--white-00);
-  font-family: 'Inter UI', sans-serif;
+  font-family: 'Inter UI';
 }
 
 main {
@@ -133,8 +139,8 @@ blockquote {
 
 .font-sm {
   margin: 0;
-  padding-top: 8px;
-  font-size: .75rem;
+  padding-top: 4px;
+  font-size: .7rem;
 }
 
 .font-x-sm {
@@ -251,7 +257,7 @@ blockquote {
 }
 
 .home h2 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1rem;
   font-weight: var(--bold);
 }
