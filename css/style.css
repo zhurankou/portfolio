@@ -39,16 +39,6 @@
   transition: all .3s ease-out;
 }
 
-/* @font-face {
-  font-family: 'Inter UI';
-  src: url('../fonts/Inter-UI.var.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter UI';
-  src: url('../fonts/Inter-UI.var.ttf') format('ttf');
-} */
-
 /* Animation */
 @keyframes fadeIn {
   0%   { opacity: 0; }
@@ -257,7 +247,7 @@ blockquote {
 }
 
 .home h2 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1rem;
   font-weight: var(--bold);
 }
