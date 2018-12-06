@@ -148,6 +148,7 @@ blockquote {
   margin: 0;
   padding-top: 4px;
   font-size: .7rem;
+  line-height: 1.1rem;
 }
 
 .font-x-sm {
@@ -264,6 +265,7 @@ blockquote {
 /* Home */
 .home h1 {
   font-size: 2rem;
+  line-height: 2.2rem;
 }
 
 .home h2 {
