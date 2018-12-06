@@ -129,7 +129,7 @@ blockquote {
 
 .font-sm {
   margin: 0;
-  padding-top: 4px;
+  padding-top: 8px;
   font-size: .7rem;
 }
 
@@ -177,7 +177,7 @@ blockquote {
 
 .grey-lt {
   color: var(--grey-30);
-}
+}``
 
 .white-bg {
   background-color: var(--white-00);
@@ -271,7 +271,7 @@ blockquote {
 }
 
 .avatar {
-  padding-top: 32px;
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -293,7 +293,6 @@ blockquote {
 }
 
 .home-project {
-  padding-top: 40px;
   display: flex;
   flex-direction: column;
 }
@@ -329,8 +328,11 @@ blockquote {
 }
 
 .column {
-  padding-top: 40px;
   width: 320px;
+}
+
+.open-in-new {
+  border-bottom: 1px solid var(--white-00);
 }
 
 /* Project page */
@@ -514,11 +516,14 @@ blockquote {
 }
 
 .copyright {
-  margin-bottom: 32px;
   text-align: center;
   font-size: 1rem;
-  font-weight: var(--bold);
-  color: var(--grey-10);
+  font-weight: var(--med);
+  color: var(--grey-20);
+}
+
+.copyright span {
+  font-size: 1.2rem;
 }
 
 @media (min-width: 992px) {
@@ -554,12 +559,15 @@ blockquote {
   }
 
   .container-home {
-    padding-top: 32px;
     width: 960px;
   }
 
+  /* .home-project {
+    padding-top: 48px;
+  } */
+
   .avatar {
-    padding-top: 64px;
+    padding-top: 88px;
   }
 
   .bio {
@@ -579,7 +587,11 @@ blockquote {
   }
 
   .column {
-    width: 460px;
+    width: 432px;
+  }
+
+  .links-top {
+    text-align: right;
   }
 
   .links {
@@ -587,7 +599,7 @@ blockquote {
   }
 
   .gap-top {
-    padding-top: 80px;
+    padding-top: 88px;
   }
 
   .home h1 {
