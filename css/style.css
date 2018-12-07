@@ -144,13 +144,6 @@ blockquote {
   color: var(--blue-00);
 }
 
-.font-sm {
-  margin: 0;
-  padding-top: 4px;
-  font-size: .7rem;
-  line-height: 1.1rem;
-}
-
 .font-x-sm {
   font-size: .75rem;
   line-height: 1.5rem;
@@ -169,7 +162,7 @@ blockquote {
 }
 
 .pulse {
-  animation: pulse 3.5s ease-out infinite;
+  animation: pulse 5s ease-out infinite;
 }
 
 /* Colors */
@@ -269,7 +262,7 @@ blockquote {
 }
 
 .home h2 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1rem;
   font-weight: var(--bold);
 }
@@ -293,7 +286,7 @@ blockquote {
 }
 
 .avatar {
-  padding-top: 24px;
+  padding-top: 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -344,7 +337,7 @@ blockquote {
 }
 
 .description {
-  margin-top: 416px;
+  margin-top: 420px;
   margin-left: 16px;
   position: absolute;
   z-index: 1;
@@ -354,8 +347,24 @@ blockquote {
   width: 320px;
 }
 
+.sub-heading {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-heading p {
+  margin: 0;
+  font-size: .7rem;
+}
+
 .open-in-new {
-  border-bottom: 1px solid var(--white-00);
+  padding: 1px;
+  width: 18px;
+  height: 18px;
+  border-top: 1px solid var(--white-00);
+  border-right: 1px solid var(--white-00);
 }
 
 /* Project page */
@@ -571,12 +580,6 @@ blockquote {
     line-height: 2rem;
   }
 
-  .font-sm {
-    padding-top: 8px;
-    font-size: .9rem;
-    line-height: 1.4rem;
-  }
-
   /* Home */
   .nav-link {
     padding: 8px 64px 0 64px;
@@ -608,6 +611,16 @@ blockquote {
   .description {
     margin-top: 564px;
     margin-left: 32px;
+  }
+
+  .sub-heading {
+    margin: 0;
+    padding: 0;
+    width: 364px;
+  }
+
+  .sub-heading p {
+    font-size: .9rem;
   }
 
   .column {
