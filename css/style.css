@@ -144,7 +144,7 @@ footer {
 }
 
 .font-x-sm {
-  font-size: .95rem;
+  font-size: 1rem;
 }
 
 .bold {
@@ -565,8 +565,8 @@ footer {
 }
 
 /* Nightmare */
-.nightmare .hero-img img {
-  width: 320px;
+.nightmare {
+  color: var(--white-10);
 }
 
 .nightmare a {
@@ -577,12 +577,11 @@ footer {
   box-shadow: inset 0 -16px 0 var(--black-30);
 }
 
-.nightmare p,
-.nightmare li {
-  color: var(--white-10);
+.nightmare-photo img{
+  width: 320px;
 }
 
-.nightmare-photo img{
+.nightmare .hero-img img {
   width: 320px;
 }
 
@@ -611,7 +610,7 @@ footer {
 }
 
 .copyright {
-  font-weight: var(--bold);
+  font-weight: var(--med);
 }
 
 @media (min-width: 992px) {
