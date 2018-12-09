@@ -144,8 +144,7 @@ footer {
 }
 
 .font-x-sm {
-  font-size: .75rem;
-  line-height: 1.5rem;
+  font-size: .95rem;
 }
 
 .bold {
@@ -612,7 +611,6 @@ footer {
 }
 
 .copyright {
-  font-size: .75rem;
   font-weight: var(--bold);
 }
 
