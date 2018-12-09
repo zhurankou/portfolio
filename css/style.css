@@ -141,7 +141,6 @@ blockquote {
 
 footer {
   padding-bottom: 24px;
-
 }
 
 .font-x-sm {
@@ -284,11 +283,11 @@ footer {
 }
 
 .home main {
-  padding-bottom: 88px;
+  padding-bottom: 48px;
 }
 
 .home footer {
-  padding-top: 88px;
+  padding-top: 48px;
 }
 
 .home footer a {
@@ -391,12 +390,36 @@ footer {
   font-size: .7rem;
 }
 
-.open-in-new {
+.symbol {
   padding: 1px;
   width: 18px;
   height: 18px;
+}
+
+.open-in-new {
   border-top: 1px solid var(--white-00);
   border-right: 1px solid var(--white-00);
+}
+
+.circle {
+  margin: auto auto;
+  padding-top: 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.circle:hover {
+  background-color: var(--black-30);
+}
+
+.back-to-top {
+  margin: auto auto;
+  border-top: 1px solid var(--white-00);
+}
+
+.story {
+  padding-top: 24px;
 }
 
 /* Project page */
@@ -666,12 +689,12 @@ footer {
     text-align: right;
   }
 
-  .links {
-
+  .gap-top-88 {
+    padding-top: 88px;
   }
 
-  .gap-top {
-    padding-top: 88px;
+  .gap-top-40 {
+    padding-top: 40px;
   }
 
   .home h1 {
@@ -684,8 +707,8 @@ footer {
     line-height: 1.5rem;
   }
 
-  .home footer {
-    padding-top: 0;
+  .home main {
+    padding-bottom: 120px;
   }
 
   /* Project */
