@@ -488,6 +488,7 @@ footer {
 
 .display-full {
   width: 320px;
+  text-align: center;
 }
 
 .display-half {
@@ -706,7 +707,7 @@ footer {
 
   /* Project */
   .project-hero {
-    padding: 32px 152px 32px 64px;
+    padding: 32px 160px 32px 64px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
