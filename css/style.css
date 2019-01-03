@@ -19,7 +19,7 @@
   --blue-00: #5D5AC8;
   --blue-10: #9BAFEB;
   --blue-20: #CBD0E9;
-  --yellow-00: #EDB234;
+  --yellow-00: #F7E381;
   --red-00: #ED1F24;
   /* fonts */
   --reg: 400;
@@ -152,7 +152,7 @@ footer {
 }
 
 .highlight {
-  box-shadow: inset 0 -20px 0 var(--grey-30);
+  box-shadow: inset 0 -20px 0 var(--yellow-00);
 }
 
 .pulse {
@@ -707,7 +707,7 @@ footer {
 
   /* Project */
   .project-hero {
-    padding: 32px 160px 32px 64px;
+    padding: 32px 140px 32px 64px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
