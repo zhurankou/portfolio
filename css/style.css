@@ -19,6 +19,7 @@
   --blue-00: #5D5AC8;
   --blue-10: #9BAFEB;
   --blue-20: #CBD0E9;
+  --blue-seattle: #0046AD;
   --yellow-00: #F7E381;
   --red-00: #ED1F24;
   /* fonts */
@@ -192,6 +193,10 @@ footer {
   color: var(--blue-00);
 }
 
+.blue-seattle {
+  color: var(--blue-seattle);
+}
+
 .red {
   color: var(--red-00);
 }
@@ -206,6 +211,10 @@ footer {
 
 .blue-bg {
   background-color: var(--blue-00);
+}
+
+.blue-seattle-bg {
+  background-color: var(--blue-seattle);
 }
 
 .red-bg {
@@ -588,6 +597,16 @@ footer {
   width: 320px;
 }
 
+/* System */
+.system a {
+  color: var(--blue-seattle);
+}
+
+.system .hero-img img {
+  width: 320px;
+}
+
+
 /* Footer */
 .left-link {
   text-align: left;
@@ -778,6 +797,12 @@ footer {
 
   /* GPSS */
   .gpss .hero-img img,
+  .gpss-results img {
+    width: 560px;
+  }
+
+  /* System */
+  .system .hero-img img,
   .gpss-results img {
     width: 560px;
   }
