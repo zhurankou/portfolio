@@ -69,9 +69,9 @@ h1, h2, h3 {
   margin: 0;
 }
 
-h1, .projects h2 {
+h1, .projects a {
   font-size: 2.5rem;
-  font-weight: var(--x-bold);
+  font-weight: var(--black);
 }
 
 h2 {
@@ -92,7 +92,7 @@ h4, p, .home a {
 a {
   margin: 0;
   text-decoration: none;
-  font-weight: var(--x-bold);
+  font-weight: var(--bold);
   color: var(--blue-00);
 }
 
@@ -177,7 +177,7 @@ li {
 }
 
 .project h2 {
-  padding-top: 48px;
+  padding-top: 64px;
 }
 
 footer {
@@ -186,9 +186,8 @@ footer {
 
 @media (min-width: 992px) {
 
-  h1,.projects h2 {
-    font-size: 3.5rem;
-    font-weight: var(--x-bold);
+  h1,.projects a {
+    font-size: 4rem;
   }
 
   h2 {
@@ -198,7 +197,6 @@ footer {
 
   h3, .subheader {
     font-size: 1.5rem;
-    font-weight: var(--bold);
   }
 
   .avatar {
@@ -206,7 +204,7 @@ footer {
   }
 
   .project img {
-    padding: 6px 0 6px 0;
+    padding: 12px 0 12px 0;
     width: 720px;
   }
 
