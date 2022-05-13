@@ -69,7 +69,7 @@ h1, h2, h3 {
   margin: 0;
 }
 
-h1, .home h2 {
+h1, .projects h2 {
   font-size: 2.5rem;
   font-weight: var(--x-bold);
 }
@@ -84,7 +84,7 @@ h3, .subheader {
   font-weight: var(--bold);
 }
 
-p, h4 {
+h4, p, .home a {
   font-size: 1.1rem;
   line-height: 1.75rem;
 }
@@ -186,7 +186,7 @@ footer {
 
 @media (min-width: 992px) {
 
-  h1,.home h2 {
+  h1,.projects h2 {
     font-size: 3.5rem;
     font-weight: var(--x-bold);
   }
