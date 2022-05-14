@@ -224,17 +224,17 @@ h1, h2 {
 }
 
 .home-links a {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 /* Project  */
 .nav {
-  padding-top: 48px;
+  padding-top: 24px;
   font-size: 2rem;
 }
 
 .project h1, .project h2, .project p, .links  {
-  padding: 0 24px 0 24px;
+  padding: 0 31px 0 31px;
 }
 
 .project h2 {
@@ -256,7 +256,7 @@ h1, h2 {
 }
 
 .links a {
-  margin-right: 8px;
+  margin-right: 4px;
 }
 
 .copy {
