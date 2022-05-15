@@ -45,11 +45,10 @@
 
 * {
   box-sizing: border-box;
-  transition: all .2s ease-out;
 }
 
 *:hover {
-  transition: all .2s ease-out;
+  transition: all .3s ease-out;
 }
 
 body {
@@ -86,7 +85,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: var(--bold);
 }
 
@@ -225,7 +224,7 @@ h1, h2 {
 }
 
 .home-links a {
-  margin-right: 4px;
+  margin-right: 2px;
 }
 
 /* Project  */
@@ -257,7 +256,7 @@ h1, h2 {
 }
 
 .links a {
-  margin-right: 4px;
+  margin-right: 2px;
 }
 
 .copy {
