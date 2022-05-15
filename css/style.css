@@ -186,6 +186,7 @@ h1, h2 {
 .project-home:hover {
     border-radius: 16px;
     background-color: var(--black-07);
+    --black-30: var(--blue-00);
 }
 
 .project-home h2 {
