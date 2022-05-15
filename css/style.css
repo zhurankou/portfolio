@@ -217,7 +217,7 @@ h1, h2 {
 
 .story {
   padding: 0 24px 0 24px;
-  width: 360px;
+  width: 340px;
 }
 
 .home-links {
@@ -271,7 +271,7 @@ h1, h2 {
   }
 
   .bio, .story {
-    width: 706px;
+    width: 700px;
   }
 
   .project-home {
@@ -279,7 +279,7 @@ h1, h2 {
   }
 
   .project h1, .project h2, .project p {
-    width: 706px;
+    width: 700px;
   }
 
   .project h2 {
