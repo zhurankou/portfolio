@@ -52,7 +52,6 @@
 }
 
 body {
-  margin: 0;
   font-family: 'Inter UI';
   background: var(--white-00);
   color: var(--black-80);
@@ -101,7 +100,6 @@ p {
 }
 
 a {
-  margin: 0;
   font-size: 1.1rem;
   font-weight: var(--bold);
   line-height: 1.75rem;
@@ -114,7 +112,7 @@ a:hover {
 }
 
 /* Home */
-h1, h2 {
+h1, h2, a {
   margin: 0;
 }
 
@@ -195,7 +193,6 @@ h1, h2 {
 }
 
 .project-home p {
-  margin: 0;
   color: var(--black-30);
 }
 
@@ -210,6 +207,7 @@ h1, h2 {
 }
 
 .project-logo-icon p {
+  margin: 0;
   font-size: 2rem;
   font-weight: var(--bold);
 }
@@ -221,10 +219,6 @@ h1, h2 {
 
 .home-links {
   padding-top: 32px;
-}
-
-.home-links a {
-  margin-right: 2px;
 }
 
 /* Project  */
@@ -253,10 +247,6 @@ h1, h2 {
 
 .links {
   padding-top: 32px;
-}
-
-.links a {
-  margin-right: 2px;
 }
 
 .copy {
@@ -288,6 +278,10 @@ h1, h2 {
   .project img {
     padding: 8px 0 8px 0;
     width: 720px;
+  }
+
+  .home-links {
+    flex: none;
   }
 
 }
