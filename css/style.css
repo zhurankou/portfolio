@@ -217,18 +217,23 @@ h1, h2, a {
   width: 340px;
 }
 
-.home-links {
+.links {
   padding-top: 32px;
+}
+
+.links a {
+  margin-right: 2px;
 }
 
 /* Project  */
 .nav {
-  padding-top: 24px;
+  padding-top: 16px;
   font-size: 2rem;
 }
 
 .project h1, .project h2, .project p, .links  {
-  padding: 0 31px 0 31px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .project h2 {
@@ -243,10 +248,6 @@ h1, h2, a {
 .project img {
   padding: 6px 0 6px 0;
   width: 360px;
-}
-
-.links {
-  padding-top: 32px;
 }
 
 .copy {
@@ -278,10 +279,6 @@ h1, h2, a {
   .project img {
     padding: 8px 0 8px 0;
     width: 720px;
-  }
-
-  .home-links {
-    flex: none;
   }
 
 }
