@@ -52,6 +52,8 @@
 }
 
 body {
+  margin: auto auto;
+  width: 376px;
   font-family: 'Inter UI';
   background: var(--white-00);
   color: var(--black-80);
@@ -90,8 +92,8 @@ h3 {
 
 h4 {
   font-size: 1.1rem;
-  font-weight: var(--bold);
   line-height: 1.75rem;
+  font-weight: var(--bold);
 }
 
 p {
@@ -112,7 +114,10 @@ a:hover {
 }
 
 /* Home */
-h1, h2, a {
+h1,
+h2,
+h3,
+a {
   margin: 0;
 }
 
@@ -140,19 +145,8 @@ h1, h2, a {
   color: var(--uw-purple);
 }
 
-.container {
-  margin: auto auto;
-  width: 372px;
-}
-
-.bio {
-  padding: 24px;
-  width: 340px;
-}
-
 .avatar {
   margin-left: -8px;
-  padding-top: 24px;
   display: flex;
   align-items: center;
 }
@@ -162,16 +156,18 @@ h1, h2, a {
 }
 
 .projects {
-  margin: auto auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+.projects a {
+  padding: 8px;
+}
+
 .project-home {
-  width: 340px;
-  height: 340px;
-  margin: 8px;
+  width: 360px;
+  height: 360px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -206,79 +202,59 @@ h1, h2, a {
   width: 32px;
 }
 
-.project-logo-icon p {
+.project-logo-icon p,
+.nav a {
   margin: 0;
   font-size: 2rem;
   font-weight: var(--bold);
 }
 
-.story {
-  padding: 0 24px 0 24px;
-  width: 340px;
+.bio,
+.story,
+.links,
+.copy,
+.nav,
+.project h2,
+.project p {
+  padding: 0 32px 0 32px;
 }
 
-.links {
-  padding-top: 32px;
-}
-
-.links a {
-  margin-right: 2px;
-}
-
-/* Project  */
-.nav {
-  padding-top: 16px;
-  font-size: 2rem;
-}
-
-.project h1, .project h2, .project p, .links  {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
+.projects,
+.links,
+.story h3,
+.nav h1,
 .project h2 {
   padding-top: 24px;
 }
 
-.nav a {
-  font-size: 2rem;
-  font-weight: var(--bold);
+.bio,
+.nav {
+  padding-top: 40px;
 }
 
 .project img {
   padding: 6px 0 6px 0;
-  width: 360px;
+  width: 376px;
 }
 
 .copy {
   color: var(--black-30);
 }
 
+.links a {
+  margin-right: 2px;
+}
+
 @media (min-width: 992px) {
 
-  .container {
-    width: 720px;
-  }
-
-  .bio, .story {
-    width: 700px;
-  }
-
-  .project-home {
-    margin: 10px;
-  }
-
-  .project h1, .project h2, .project p {
-    width: 700px;
-  }
-
-  .project h2 {
-    padding-top: 48px;
+  body {
+    width: 752px;
   }
 
   .project img {
     padding: 8px 0 8px 0;
-    width: 720px;
+    width: 752px;
   }
+
 
 }
