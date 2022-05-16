@@ -84,7 +84,7 @@ a {
 h1,
 .project-home h2 {
   font-size: 3rem;
-  line-height: 3.5rem;
+  line-height: 3.35rem;
   font-weight: var(--black);
 }
 
@@ -96,6 +96,7 @@ h2 {
 h3,
 .nav p {
   font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: var(--bold);
 }
 
