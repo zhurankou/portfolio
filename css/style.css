@@ -74,9 +74,17 @@ body {
   src: url(../fonts/Inter-UI.var.woff2);
 }
 
-/* Typography */
-h1 {
-  font-size: 2.75rem;
+h1,
+h2,
+h3,
+a {
+  margin: 0;
+}
+
+h1,
+.project-home h2 {
+  font-size: 3rem;
+  line-height: 3.5rem;
   font-weight: var(--black);
 }
 
@@ -85,7 +93,8 @@ h2 {
   font-weight: var(--bold);
 }
 
-h3 {
+h3,
+.nav p {
   font-size: 1.5rem;
   font-weight: var(--bold);
 }
@@ -111,14 +120,6 @@ a {
 
 a:hover {
   color: var(--blue-00);
-}
-
-/* Home */
-h1,
-h2,
-h3,
-a {
-  margin: 0;
 }
 
 .msft-red {
@@ -180,12 +181,6 @@ a {
     border-radius: 16px;
     background-color: var(--black-07);
     --black-30: var(--blue-00);
-}
-
-.project-home h2 {
-  font-size: 2.75rem;
-  line-height: 3.25rem;
-  font-weight: var(--black);
 }
 
 .project-home p {
