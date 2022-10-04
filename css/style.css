@@ -231,6 +231,7 @@ a:hover {
 .project img {
   padding: 6px 0 6px 0;
   width: 376px;
+  border-radius: 2%/4%;
 }
 
 .copy {
