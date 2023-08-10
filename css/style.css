@@ -32,6 +32,7 @@
   --msft-blue: #00AEEF;
   --seattle-blue: #0046AD;
   --uw-purple: #4B2E83;
+  --amazon-orange: #FF9900;
   /* fonts */
   --reg: 400;
   --med: 500;
@@ -145,6 +146,10 @@ a:hover {
 
 .uw-purple {
   color: var(--uw-purple);
+}
+
+.amazon-orange {
+  color: var(--amazon-orange);
 }
 
 .avatar {
