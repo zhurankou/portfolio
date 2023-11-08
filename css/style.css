@@ -107,7 +107,8 @@ h4 {
   font-weight: var(--bold);
 }
 
-p {
+p,
+li {
   font-size: 1.1rem;
   line-height: 1.75rem;
 }
@@ -216,7 +217,9 @@ a:hover {
 .copy,
 .nav,
 .project h2,
-.project p {
+.project p,
+.project ol,
+.project ul {
   padding: 0 32px 0 32px;
 }
 
