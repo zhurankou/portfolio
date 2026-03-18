@@ -55,7 +55,7 @@
 body {
   margin: auto auto;
   width: 376px;
-  font-family: 'Inter', 'Inter UI', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Inter UI';
   background: var(--white-00);
   color: var(--black-80);
 }
@@ -68,6 +68,11 @@ body {
     --black-07: var(--white-10);
     --black-30: var(--white-30);
   }
+}
+
+@font-face {
+  font-family: 'Inter UI';
+  src: url(../fonts/Inter-UI.var.woff2);
 }
 
 h1,
