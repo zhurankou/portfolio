@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Alex Zhurankou">
+  <meta name="description" content="Personal portfolio website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyps Metrics Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a href="../index.html"><p><span class="material-icons">arrow_back</span></p></a>
+      <h1>Polyps Metrics Dashboard</h1>
+      <p>Objective: Designing a Polyps metrics page for OlySense Clinical Insights to help endoscopists and endoscopy leads understand and improve polyp‑related quality metrics in colonoscopy. The experience focuses on ESGE‑defined metrics like Polyp Detection Rate (PDR), Polyp Retrieval Rate (PRR), morphology description, and appropriate polypectomy technique.</p>
+    </div>
+  </header>
+  <main>
+    <div class="project">
+      <h2>Contribution</h2>
+      <p>I led the end‑to‑end product design—from translating complex guidelines into UX requirements, to low‑ and high‑fidelity testing with clinicians in multiple hospitals.</p>
+      <img src="../images/polyps/polyps01.png" alt="final polyps design">
+      <h2>Understanding polyps & users</h2>
+      <p>I started from a detailed discovery report summarizing ESGE quality metrics for polyps, including PDR, PRR, adequate morphology description, and appropriate polypectomy technique. I translated these into two primary personas: endoscopists improving their own performance, and endoscopy leads monitoring department‑level quality and outliers.</p>
+      <p>Together with our UX Researcher, I distilled user needs into three core questions: “Am I compliant with ESGE standards?”, “What kinds of polyps am I detecting, resecting, and retrieving?”, and “What might be driving high or low scores over time?”.</p>
+      <img src="../images/polyps/polyps02.png" alt="endoscopist and endoscopy leadpersonas">
+      <h2>Low‑fidelity exploration & testing</h2>
+      <p>Based on the discovery findings, I sketched multiple information architectures for the Polyps experience and built low‑fidelity Figma prototypes. The concepts varied on core questions: one vs two pages, charts vs tables, and how much polyp detail (size, location, classification, resection method) clinicians needed surfaced by default.</p>
+      <p>Together with our UX Researcher, I co‑created the low‑fi research brief and discussion guide, and we ran 60–90 minute remote sessions with 10 clinicians (endoscopists and endoscopy leads) across Spain and Germany. During these interviews we compared a split PDR/PRR experience with a unified “all polyps” page and evaluated hover cards and modals that exposed more contextual data per month.</p>
+      <p>Key learnings:</p>
+      <ul>
+        <li>Clinicians preferred a single Polyps page that told the full story of detection, resection, and retrieval rather than separate PDR and PRR pages.</li>
+        <li>Polyp Location and Size worked best as charts for quick at‑a‑glance understanding, with tables used later for deeper analysis.</li>
+        <li>Bowel preparation score (BBPS), number of procedures, and cecal intubation rate were critical context for interpreting changes in PDR; BBPS and procedure count were particularly helpful for PRR.</li>
+        <li>Polyps by gender was perceived as low‑value and a good candidate to remove from future iterations.</li>
+      </ul>
+      <img src="../images/polyps/polyps03.png" alt="PDR PRR page layouts side-by-side vs combined">
+      <img src="../images/polyps/polyps04.png" alt="hover card close-up">
+      <img src="../images/polyps/polyps05.png" alt="by doctor table">
+      <h2>High‑fidelity candidates & usability</h2>
+      <p>Using our OlySense design system, I translated validated directions into high‑fidelity prototypes exploring two main layouts: a tabbed Polyps page and a long scroll with stacked graphs and tables. We framed a usability study to see how well each design supported real tasks such as finding current PDR/PRR, understanding why scores changed, and exploring polyp characteristics by type, size, and location.</p>
+      <p>I co‑authored the hi‑fi UXR plan, brief, and discussion guide, then co‑moderated 60‑minute remote usability sessions with seven clinicians (endoscopists and endoscopy leads) across three hospitals. In each session we asked participants to complete core tasks—like explaining a PDR drop in a specific month—and observed how the different layouts, charts, tables, and hover states helped or hindered them.</p>
+      <p>Key findings:</p>
+      <ul>
+        <li>The tabbed layout (Concept 1) reduced cognitive overload and made the hierarchy clear, prioritizing PDR while keeping PRR accessible, though the PRR tab needed stronger visual affordance.</li>
+        <li>Participants consistently preferred visual graphs for By Size and By Location, while tables remained more useful for dense details like By Type and By Resection Method.</li>
+        <li>Information like “By Number” and “By Time of Day” added noise and did not meaningfully help clinicians improve their PDR/PRR, so we decided to remove them.</li>
+        <li>Clinicians reason about polyp size in ranges rather than exact millimeters, so we grouped sizes into <5 mm, 5–10 mm, 10–20 mm, and >20 mm.</li>
+        <li>To simplify the location chart while keeping clinical signal, we merged small segments into broader regions (for example, cecum + ileum + ascending colon, and sigmoid + rectum).</li>    
+      </ul>\
+      <img src="../images/polyps/polyps06.png" alt="hi-fi concept 1 PDR tab, main chart and graphs">
+      <img src="../images/polyps/polyps07.png" alt="hi-fi concept 2 scroll layout and tables">
+      <img src="../images/polyps/polyps08.png" alt="hover card close-up with BBPS/CIR/withdrawal time">
+      <h2>Final Design & Impact</h2>
+      <p>The final design is a single Polyps page with PDR/PRR tabs, an at‑a‑glance PDR trend line against ESGE thresholds, and focused supporting charts and tables. Endoscopists can quickly see where they fall below guidelines, explore potential drivers in hover cards and By Size/By Location graphs, and then drill into polyp type and resection method when they need more detail.</p>
+      <p>Endoscopy leads get an additional By Doctor table that surfaces PDR and PRR per clinician, helping them identify outliers and prioritize coaching. Together, these changes make polyps data more actionable while respecting clinicians’ time and cognitive load during quality review.</p>
+      <img src="../images/polyps/polyps09.png" alt="final polyps metrics page PDR">
+      <img src="../images/polyps/polyps10.png" alt="final polyps page PRR">
+      <p>What I’d explore next:</p>
+      <ul>
+        <li>Integrating histology data (e.g., adenoma types) so clinicians can connect detection quality with pathology outcomes, not just process metrics.</li>
+        <li>Configurable views for smaller practices that do not use the full classification and resection method set, reducing noise for those environments.</li>
+      </ul>
+      <p>Thanks for reading!</p>
+    </div>
+  </main>
+  <footer>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/zhurankou/" target="_blank">LinkedIn</a>
+      <a href="https://twitter.com/zhurankou" target="_blank">Twitter</a>
+      <a href="https://github.com/zhurankou" target="_blank">GitHub</a>
+    </div>
+    <div class="copy">
+      <p><b>&copy;2023</b></p>
+    </div>
+  </footer>
+</body>
+
+</html>
