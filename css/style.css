@@ -55,7 +55,7 @@
 body {
   margin: auto auto;
   width: 376px;
-  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--white-00);
   color: var(--black-80);
 }
