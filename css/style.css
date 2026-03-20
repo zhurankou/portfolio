@@ -33,6 +33,7 @@
   --seattle-blue: #0046AD;
   --uw-purple: #4B2E83;
   --amazon-orange: #FF9900;
+  --olympus-blue: #011ECA;
   /* fonts */
   --reg: 400;
   --med: 500;
@@ -146,6 +147,10 @@ a:hover {
 
 .amazon-orange {
   color: var(--amazon-orange);
+}
+
+.olympus-blue {
+  color: var(--olympus-blue);
 }
 
 .avatar {
