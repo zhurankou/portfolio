@@ -34,6 +34,7 @@
   --uw-purple: #4B2E83;
   --amazon-orange: #FF9900;
   --olympus-blue: #011ECA;
+  --olympus-yellow: #E9B226;
   /* fonts */
   --reg: 400;
   --med: 500;
@@ -151,6 +152,10 @@ a:hover {
 
 .olympus-blue {
   color: var(--olympus-blue);
+}
+
+.olympus-yellow {
+  color: var(--olympus-yellow);
 }
 
 .avatar {
