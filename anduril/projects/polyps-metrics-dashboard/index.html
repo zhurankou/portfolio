@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polyps Metrics Dashboard — Alex Zhurankou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #dff140;
+  --muted: #555;
+  --subtle: #1a1a1a;
+  --grid-color: rgba(255,255,255,0.04);
+  --dot-color: rgba(255,255,255,0.08);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ——— DOT GRID BACKGROUND ——— */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ——— GRID LINES OVERLAY ——— */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.grid-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
+/* ——— MARGIN COORDINATES ——— */
+.coord {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.coord-left {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+.coord-right {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+.coord-top {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.coord-bottom {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ——— LAYOUT ——— */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 3;
+}
+
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+/* ——— TYPOGRAPHY ——— */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ——— SECTION LABEL ——— */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.section-label .mono {
+  color: var(--accent);
+  white-space: nowrap;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--subtle);
+}
+
+/* ——— NAV ——— */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.7);
+  border-bottom: 1px solid var(--subtle);
+}
+nav .logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  text-decoration: none;
+}
+nav .logo span { color: var(--accent); }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+nav ul a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav ul a:hover { color: var(--accent); }
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.status-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ——— BUTTONS ——— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn-primary:hover {
+  background: #fff;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--muted);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ——— TAGS ——— */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border: 1px solid var(--subtle);
+  color: var(--muted);
+  transition: all 0.3s;
+}
+
+/* ——— PROJECT HERO ——— */
+.project-hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+.project-hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.project-hero h1 {
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.project-hero h1 .accent { color: var(--accent); }
+.project-hero-summary {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.project-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ——— OVERVIEW SECTION ——— */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.overview-text p {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+.overview-text p strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ——— METADATA PANEL ——— */
+.meta-panel {
+  border: 1px solid var(--subtle);
+  padding: 40px;
+}
+.meta-panel h4 {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  color: var(--accent);
+}
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--subtle);
+}
+.meta-row:last-child { border-bottom: none; }
+.meta-key {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.meta-value {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ——— PROCESS SECTION ——— */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.process-step {
+  border: 1px solid var(--subtle);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.process-step:hover {
+  border-color: rgba(223,241,64,0.2);
+}
+.process-step::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.process-step:hover::after { width: 100%; }
+.process-index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+.process-step h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.process-step p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+/* ——— FEATURES SECTION ——— */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.feature-card {
+  border: 1px solid var(--subtle);
+  padding: 48px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.feature-card::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.feature-card:hover::after { width: 100%; }
+.feature-card:hover { border-color: rgba(223,241,64,0.2); }
+.feature-icon {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+  line-height: 1;
+}
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.feature-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+
+/* ——— RESULTS SECTION ——— */
+.results-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--subtle);
+  border-top: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--subtle);
+  margin-bottom: 64px;
+}
+.result-item {
+  background: var(--bg);
+  padding: 48px 32px;
+  text-align: center;
+}
+.result-value {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.result-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.results-text {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+/* ——— PROJECT NAV ——— */
+.project-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--subtle);
+  border-top: 1px solid var(--subtle);
+}
+.project-nav-item {
+  background: var(--bg);
+  padding: 48px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project-nav-item:hover {
+  background: rgba(223,241,64,0.03);
+}
+.project-nav-item:hover .project-nav-title {
+  color: var(--accent);
+}
+.project-nav-item:hover .project-nav-arrow {
+  color: var(--accent);
+}
+.project-nav-direction {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.project-nav-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.project-nav-arrow {
+  font-size: 20px;
+  color: var(--muted);
+  transition: all 0.3s;
+}
+.project-nav-item.next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* ——— DIVIDER ——— */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--subtle);
+}
+
+/* ——— FOOTER ——— */
+footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+footer .mono { font-size: 11px; }
+
+/* ——— SCROLL REVEAL ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ——— SCANLINE ANIMATION ——— */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.15;
+  z-index: 1;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100vh; }
+}
+
+/* ——— PROJECT IMAGES ——— */
+.image-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 16px;
+  margin: 0 -48px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+.image-carousel::-webkit-scrollbar {
+  height: 4px;
+}
+.image-carousel::-webkit-scrollbar-track {
+  background: var(--subtle);
+}
+.image-carousel::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 2px;
+}
+.image-carousel::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+.image-slide {
+  flex: 0 0 80%;
+  max-width: 800px;
+  scroll-snap-align: start;
+}
+.image-slide.wide {
+  flex: 0 0 80%;
+  max-width: 800px;
+}
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--subtle);
+  transition: border-color 0.4s;
+}
+.image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(223,241,64,0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(223,241,64,0.25) 1px, transparent 1px),
+    rgba(0,0,0,0.4);
+  background-size: 120px 120px, 120px 120px, 100% 100%;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.image-wrap:hover::after {
+  opacity: 0;
+}
+.image-wrap:hover {
+  border-color: rgba(223,241,64,0.2);
+}
+.project-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #111;
+  padding: 24px;
+  object-fit: contain;
+}
+.image-slide .image-wrap {
+  aspect-ratio: 1280 / 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-caption {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  nav { padding: 16px 24px; }
+  nav ul { gap: 20px; }
+  .project-hero-meta { flex-direction: column; gap: 8px; }
+  .overview-grid { grid-template-columns: 1fr; gap: 48px; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: 1fr; }
+  .results-bar { grid-template-columns: 1fr; }
+  .project-nav { grid-template-columns: 1fr; }
+  .project-nav-item.next { text-align: left; align-items: flex-start; }
+  .coord { display: none; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 600px) {
+  section { padding: 80px 0; }
+  .project-hero h1 { font-size: 32px; }
+  .process-grid { grid-template-columns: 1fr; }
+  nav ul { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Grid overlay -->
+<div class="grid-overlay"></div>
+<div class="scanline"></div>
+
+<!-- Margin coordinates -->
+<div class="coord coord-left">47.6062 N / 122.3321 W — SEATTLE</div>
+<div class="coord coord-right">SYS.PORTFOLIO // V2.4.1</div>
+<div class="coord coord-top">AZ — UX.DESIGN — 2026</div>
+<div class="coord coord-bottom">SCROLL.Y: <span id="scrollY">0000</span> — FPS: <span id="fpsCounter">60</span></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="/anduril/" class="logo">AZ<span>.</span></a>
+  <ul>
+    <li><a href="/anduril/#about">About</a></li>
+    <li><a href="/anduril/#projects">Projects</a></li>
+    <li><a href="/anduril/#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <span class="status-text">Open to work</span>
+  </div>
+</nav>
+
+<!-- Project Hero -->
+<section class="project-hero">
+  <div class="container">
+    <div class="project-hero-meta reveal">
+      <span class="mono">PRJ_001</span>
+      <span class="mono">Olympus</span>
+      <span class="mono">Mar — Oct 2025</span>
+      <span class="mono">Lead Product Designer</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">
+      Polyps Metrics<br>Dashboard<span class="accent">.</span>
+    </h1>
+    <p class="project-hero-summary reveal reveal-delay-2">
+      Designing a Polyps metrics page for OlySense Clinical Insights to help endoscopists and endoscopy leads understand and improve polyp‑related quality metrics in colonoscopy.
+    </p>
+    <div class="project-hero-tags reveal reveal-delay-3">
+      <span class="tag">Data Visualization</span>
+      <span class="tag">Healthcare</span>
+      <span class="tag">Dashboard</span>
+      <span class="tag">Analytics</span>
+    </div>
+  </div>
+</section>
+
+<div class="container" style="margin-top: -40px; margin-bottom: 80px;">
+  <div class="image-wrap reveal" style="max-width: 900px; margin: 0 auto;">
+    <img src="/anduril/images/polyps/polyps01.png" alt="Polyps Metrics Dashboard — final design" class="project-image">
+  </div>
+  <p class="image-caption" style="text-align: center;">FINAL POLYPS DASHBOARD DESIGN</p>
+</div>
+
+<!-- Overview -->
+<section id="overview">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">01 // Contribution</span>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-text">
+        <p class="reveal">
+          <strong>I led the end‑to‑end product design</strong> — from translating complex guidelines into UX requirements, to low‑ and high‑fidelity testing with clinicians in multiple hospitals. The experience focuses on ESGE‑defined (European Society of Gastrointestinal Endoscopy) metrics like Polyp Detection Rate (PDR), Polyp Retrieval Rate (PRR), morphology description, and appropriate polypectomy technique.
+        </p>
+        <p class="reveal reveal-delay-1">
+          I started from a detailed discovery report summarizing ESGE quality metrics for polyps. I translated these into two primary personas: endoscopists improving their own performance, and endoscopy leads monitoring department‑level quality and outliers.
+        </p>
+        <p class="reveal reveal-delay-2">
+          Together with our UX Researcher, I distilled user needs into three core questions: "Am I compliant with ESGE standards?", "What kinds of polyps am I detecting, resecting, and retrieving?", and "What might be driving high or low scores over time?".
+        </p>
+      </div>
+      <div class="meta-panel reveal reveal-delay-2">
+        <h4>Project Details</h4>
+        <div class="meta-row">
+          <span class="meta-key">Role</span>
+          <span class="meta-value">Lead Product Designer</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Client</span>
+          <span class="meta-value">Olympus</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Date</span>
+          <span class="meta-value">Mar — Oct 2025</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Duration</span>
+          <span class="meta-value">8 Months</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Tools</span>
+          <span class="meta-value">Figma, FigJam, Miro</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-key">Deliverables</span>
+          <span class="meta-value">Hi-fi Prototypes, Specs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">02 // Low‑Fidelity Exploration & Testing</span>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-text">
+        <p class="reveal">
+          Based on the discovery findings, I sketched multiple ideas for the Polyps experience and built low‑fidelity Figma prototypes. The concepts varied on core questions: one vs two pages, charts vs tables, and how much polyp detail (size, location, classification, resection method) clinicians needed surfaced by default.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Together with our UX Researcher, I co‑created the low‑fi research brief and discussion guide, and we ran 60–90 minute remote sessions with <strong>10 clinicians</strong> (endoscopists and endoscopy leads) across Spain and Germany. During these interviews we compared a split PDR/PRR experience with a unified "all polyps" page and evaluated hover cards and modals that exposed more contextual data per month.
+        </p>
+      </div>
+      <div class="meta-panel reveal reveal-delay-2">
+        <h4>Key Learnings</h4>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Clinicians preferred a single Polyps page that told the full story of detection, resection, and retrieval rather than separate PDR and PRR pages.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Polyp Location and Size worked best as charts for quick at‑a‑glance understanding, with tables used later for deeper analysis.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">BBPS, number of procedures, and cecal intubation rate were critical context for interpreting changes in PDR.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Polyps by gender was perceived as low‑value and a good candidate to remove from future iterations.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="image-carousel reveal">
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps03.png" alt="Low-fidelity layout comparison — split PDR/PRR vs combined" class="project-image">
+        </div>
+        <p class="image-caption">Low-fi — Split PDR/PRR vs combined layout</p>
+      </div>
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps04.png" alt="Hover card close-up" class="project-image">
+        </div>
+        <p class="image-caption">Low-fi — Hover card close-up</p>
+      </div>
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps05.png" alt="By doctor table view" class="project-image">
+        </div>
+        <p class="image-caption">Low-fi — By doctor table view</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hi-Fi Candidates -->
+<section id="hifi">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">03 // High‑Fidelity Candidates & Usability</span>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-text">
+        <p class="reveal">
+          Using our OlySense design system, I translated validated directions into high‑fidelity prototypes exploring two main layouts: a tabbed Polyps page and a long scroll with stacked graphs and tables. We framed a usability study to see how well each design supported real tasks such as finding current PDR/PRR, understanding why scores changed, and exploring polyp characteristics.
+        </p>
+        <p class="reveal reveal-delay-1">
+          I co‑authored the hi‑fi UXR plan, brief, and discussion guide, then co‑moderated 60‑minute remote usability sessions with <strong>7 clinicians</strong> (endoscopists and endoscopy leads) across three hospitals. In each session we asked participants to complete core tasks — like explaining a PDR drop in a specific month — and observed how the different layouts, charts, tables, and hover states helped or hindered them.
+        </p>
+      </div>
+      <div class="meta-panel reveal reveal-delay-2">
+        <h4>Key Findings</h4>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">The tabbed layout (Concept 1) reduced cognitive overload and made the hierarchy clear, prioritizing PDR while keeping PRR accessible.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Participants consistently preferred visual graphs for By Size and By Location, while tables remained more useful for dense details like By Type and By Resection Method.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Information like "By Number" and "By Time of Day" added noise — removed.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Polyp sizes grouped into ranges (&lt;5 mm, 5–10 mm, 10–20 mm, &gt;20 mm) — clinicians reason in ranges, not exact mm.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Location chart simplified by merging small segments into broader regions (e.g., cecum + ileum + ascending colon).</span>
+        </div>
+      </div>
+    </div>
+    <div class="image-carousel reveal" style="margin-top: 64px;">
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps06.png" alt="Hi-fi concept 1 — PDR tab with main chart and graphs" class="project-image">
+        </div>
+        <p class="image-caption">Concept 1 — Tabbed PDR page, main chart & graphs</p>
+      </div>
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps07.png" alt="Hi-fi concept 2 — scroll layout and tables" class="project-image">
+        </div>
+        <p class="image-caption">Concept 2 — Long scroll layout & tables</p>
+      </div>
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps08.png" alt="Hover card close-up with BBPS/CIR/withdrawal time" class="project-image">
+        </div>
+        <p class="image-caption">Hover card — BBPS / CIR / Withdrawal time details</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final Design -->
+<section id="final">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">04 // Final Design</span>
+    </div>
+    <div class="overview-grid">
+      <div class="overview-text">
+        <p class="reveal">
+          The final design is a single Polyps page with PDR/PRR tabs, an at‑a‑glance PDR trend line against ESGE thresholds, and focused supporting charts and tables. Endoscopists can quickly see where they fall below guidelines, explore potential drivers in hover cards and By Size/By Location graphs, and then drill into polyp type and resection method when they need more detail.
+        </p>
+        <p class="reveal reveal-delay-1">
+          Endoscopy leads get an additional <strong>By Doctor table</strong> that surfaces PDR and PRR per clinician, helping them identify outliers and prioritize coaching. Together, these changes make polyps data more actionable while respecting clinicians' time and cognitive load during quality review.
+        </p>
+      </div>
+      <div class="meta-panel reveal reveal-delay-2">
+        <h4>What I'd Explore Next</h4>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Integrating histology data (e.g., adenoma types) so clinicians can connect detection quality with pathology outcomes, not just process metrics.</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-value" style="text-align: left; color: rgba(255,255,255,0.7);">Configurable views for smaller practices that do not use the full classification and resection method set, reducing noise for those environments.</span>
+        </div>
+      </div>
+    </div>
+    <div class="image-carousel reveal" style="margin-top: 64px;">
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps09.png" alt="Final polyps metrics page — PDR view" class="project-image">
+        </div>
+        <p class="image-caption">Final design — PDR (Polyp Detection Rate)</p>
+      </div>
+      <div class="image-slide">
+        <div class="image-wrap">
+          <img src="/anduril/images/polyps/polyps10.png" alt="Final polyps page — PRR view" class="project-image">
+        </div>
+        <p class="image-caption">Final design — PRR (Polyp Resection Rate)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Navigation -->
+<section style="padding: 0;">
+  <div class="project-nav reveal">
+    <a href="/anduril/projects/onedrive-sharing-dialog/" class="project-nav-item prev">
+      <span class="project-nav-direction">
+        <span class="project-nav-arrow">&larr;</span>
+        Previous Project
+      </span>
+      <span class="project-nav-title">OneDrive Sharing Dialog</span>
+    </a>
+    <a href="/anduril/projects/bbps-cir-quality-metrics/" class="project-nav-item next">
+      <span class="project-nav-direction">
+        Next Project
+        <span class="project-nav-arrow">&rarr;</span>
+      </span>
+      <span class="project-nav-title">BBPS & CIR Quality Metrics</span>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span class="mono">&copy; 2026 Alex Zhurankou. All rights reserved.</span>
+  <span class="mono" id="localTime">—</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ——— SCROLL REVEAL ———
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // ——— SCROLL Y COORDINATE ———
+  const scrollYEl = document.getElementById('scrollY');
+  window.addEventListener('scroll', () => {
+    const y = Math.round(window.scrollY);
+    scrollYEl.textContent = String(y).padStart(4, '0');
+  }, { passive: true });
+
+  // ——— FPS COUNTER ———
+  const fpsEl = document.getElementById('fpsCounter');
+  let frameCount = 0;
+  let lastTime = performance.now();
+
+  function measureFPS(now) {
+    frameCount++;
+    if (now - lastTime >= 1000) {
+      fpsEl.textContent = frameCount;
+      frameCount = 0;
+      lastTime = now;
+    }
+    requestAnimationFrame(measureFPS);
+  }
+  requestAnimationFrame(measureFPS);
+
+  // ——— LIVE CLOCK ———
+  const localTimeEl = document.getElementById('localTime');
+
+  function updateTime() {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('en-US', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+    localTimeEl.textContent = 'LOCAL: ' + timeStr + ' PST';
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+
+})();
+</script>
+</body>
+</html>

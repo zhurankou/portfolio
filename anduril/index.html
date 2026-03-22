@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Zhurankou — UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #dff140;
+  --muted: #555;
+  --subtle: #1a1a1a;
+  --grid-color: rgba(255,255,255,0.04);
+  --dot-color: rgba(255,255,255,0.08);
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ——— DOT GRID BACKGROUND ——— */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ——— GRID LINES OVERLAY ——— */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.grid-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
+/* ——— MARGIN COORDINATES ——— */
+.coord {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.coord-left {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+.coord-right {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  white-space: nowrap;
+}
+.coord-top {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.coord-bottom {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ——— LAYOUT ——— */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 3;
+}
+
+section {
+  padding: 120px 0;
+  position: relative;
+}
+
+/* ——— TYPOGRAPHY ——— */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ——— SECTION LABEL ——— */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.section-label .mono {
+  color: var(--accent);
+  white-space: nowrap;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--subtle);
+}
+
+/* ——— NAV ——— */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.7);
+  border-bottom: 1px solid var(--subtle);
+}
+nav .logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+  text-decoration: none;
+}
+nav .logo span { color: var(--accent); }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+nav ul a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav ul a:hover { color: var(--accent); }
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.status-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ——— HERO ——— */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 80px;
+}
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.hero-meta .mono { color: var(--muted); }
+.hero h1 {
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.hero h1 .accent { color: var(--accent); }
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 0;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn-primary:hover {
+  background: #fff;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--muted);
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ——— TICKER BAR ——— */
+.ticker-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--subtle);
+  border-top: 1px solid var(--subtle);
+  border-bottom: 1px solid var(--subtle);
+  margin-top: 80px;
+}
+.ticker-item {
+  background: var(--bg);
+  padding: 32px 24px;
+  text-align: center;
+}
+.ticker-value {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.ticker-value .suffix {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--accent);
+}
+.ticker-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ——— ABOUT ——— */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.about-text p {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+.about-text p strong {
+  color: var(--fg);
+  font-weight: 500;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.skill-block {
+  border: 1px solid var(--subtle);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.skill-block:hover {
+  border-color: var(--accent);
+}
+.skill-block::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+.skill-name {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+.skill-detail {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.skill-bar {
+  height: 2px;
+  background: var(--subtle);
+  margin-top: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ——— VIEW TOGGLE ——— */
+.view-toggle {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 24px;
+}
+.view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--subtle);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.view-btn:hover {
+  border-color: var(--muted);
+  color: var(--fg);
+}
+.view-btn.active {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+/* ——— VIEW MODES ——— */
+/* Default: grid view (cards visible, rows hidden) */
+.projects-list .project-row { display: none; }
+.project-header.list-only { display: none; }
+.projects-list .project-card { display: block; }
+
+/* Grid view: cards in 2-col grid */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+/* List view */
+.projects-list.view-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.projects-list.view-list .project-row { display: grid; }
+.projects-list.view-list .project-card { display: none; }
+.projects-list.view-list + .dummy,
+.project-header.list-only.show { display: grid; }
+
+/* ——— PROJECTS ——— */
+a.project-row, a.project-card {
+  text-decoration: none;
+  color: inherit;
+}
+.project-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 180px 140px 60px;
+  gap: 0;
+  align-items: stretch;
+  background: var(--subtle);
+  transition: all 0.3s;
+  cursor: default;
+}
+.project-row:hover {
+  background: rgba(223,241,64,0.05);
+}
+.project-row:hover .project-title {
+  color: var(--accent);
+}
+.project-row:hover .project-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+.project-cell {
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border-right: 1px solid var(--subtle);
+}
+.project-cell:last-child { border-right: none; }
+.project-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  justify-content: center;
+}
+.project-info { flex-direction: column; align-items: flex-start; gap: 4px; }
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+.project-desc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.project-company {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+.project-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.project-arrow {
+  font-size: 18px;
+  color: var(--muted);
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+/* project header row */
+.project-header {
+  display: grid;
+  grid-template-columns: 80px 1fr 180px 140px 60px;
+  gap: 0;
+  margin-bottom: 2px;
+}
+.project-header span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--subtle);
+}
+
+/* ——— PROJECT DETAIL CARDS ——— */
+.project-card {
+  border: 1px solid var(--subtle);
+  padding: 40px;
+  position: relative;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.project-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover::after { width: 100%; }
+.project-card:hover { border-color: rgba(223,241,64,0.2); }
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.project-card-index {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+}
+.project-card-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.6;
+}
+.project-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+.project-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border: 1px solid var(--subtle);
+  color: var(--muted);
+  transition: all 0.3s;
+}
+.project-card:hover .tag {
+  border-color: rgba(223,241,64,0.15);
+  color: rgba(255,255,255,0.6);
+}
+
+/* ——— CONTACT ——— */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-heading {
+  font-size: clamp(36px, 4vw, 56px);
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.contact-heading .accent { color: var(--accent); }
+.contact-text {
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border: 1px solid var(--subtle);
+  text-decoration: none;
+  color: var(--fg);
+  transition: all 0.3s;
+}
+.contact-link:hover {
+  border-color: var(--accent);
+  background: rgba(223,241,64,0.03);
+}
+.contact-link:hover .contact-link-arrow { color: var(--accent); transform: translateX(4px); }
+.contact-link-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.contact-link-value {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+}
+.contact-link-arrow {
+  font-size: 20px;
+  color: var(--muted);
+  transition: all 0.3s;
+}
+.contact-info-panel {
+  border: 1px solid var(--subtle);
+  padding: 40px;
+}
+.contact-info-panel h4 {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  margin-bottom: 32px;
+  color: var(--accent);
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--subtle);
+}
+.info-row:last-child { border-bottom: none; }
+.info-key {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.info-value {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* ——— FOOTER ——— */
+footer {
+  padding: 32px 48px;
+  border-top: 1px solid var(--subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+}
+footer .mono { font-size: 11px; }
+
+/* ——— SCROLL REVEAL ——— */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ——— SCANLINE ANIMATION ——— */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.15;
+  z-index: 1;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes scanline {
+  0% { top: 0; }
+  100% { top: 100vh; }
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .container { padding: 0 24px; }
+  nav { padding: 16px 24px; }
+  nav ul { gap: 20px; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+  .ticker-bar { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .project-row { grid-template-columns: 60px 1fr 120px; }
+  .project-cell:nth-child(4),
+  .project-cell:nth-child(5) { display: none; }
+  .project-header { grid-template-columns: 60px 1fr 120px; }
+  .project-header span:nth-child(4),
+  .project-header span:nth-child(5) { display: none; }
+  .projects-list { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .coord { display: none; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 600px) {
+  section { padding: 80px 0; }
+  .hero h1 { font-size: 36px; }
+  .ticker-bar { grid-template-columns: 1fr 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .project-row { grid-template-columns: 1fr; }
+  .project-cell:first-child { display: none; }
+  .project-cell:nth-child(3) { display: none; }
+  .project-header { display: none; }
+  nav ul { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Grid overlay -->
+<div class="grid-overlay"></div>
+<div class="scanline"></div>
+
+<!-- Margin coordinates -->
+<div class="coord coord-left" id="coordLeft">47.6062 N / 122.3321 W — SEATTLE</div>
+<div class="coord coord-right" id="coordRight">SYS.PORTFOLIO // V2.4.1</div>
+<div class="coord coord-top" id="coordTop">AZ — UX.DESIGN — 2026</div>
+<div class="coord coord-bottom" id="coordBottom">SCROLL.Y: <span id="scrollY">0000</span> — FPS: <span id="fpsCounter">60</span></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#hero" class="logo">AZ<span>.</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    <span class="status-text">Open to work</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-meta reveal">
+      <span class="mono">ID: AZ-2026-UXD</span>
+      <span class="mono">Location: Seattle, WA</span>
+      <span class="mono">Status: Available</span>
+    </div>
+    <h1 class="reveal reveal-delay-1">
+      Alex<br>Zhurankou<span class="accent">.</span>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      UX Designer specializing in B2B product design, design systems, and data visualization. Turning complex data into clear, actionable interfaces.
+    </p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#projects" class="btn btn-primary">View Projects <span>&darr;</span></a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="ticker-bar reveal reveal-delay-4">
+      <div class="ticker-item">
+        <div class="ticker-value"><span class="counter" data-target="8">0</span><span class="suffix">+</span></div>
+        <div class="ticker-label">Years Experience</div>
+      </div>
+      <div class="ticker-item">
+        <div class="ticker-value"><span class="counter" data-target="40">0</span><span class="suffix">+</span></div>
+        <div class="ticker-label">Projects Shipped</div>
+      </div>
+      <div class="ticker-item">
+        <div class="ticker-value"><span class="counter" data-target="4">0</span></div>
+        <div class="ticker-label">Enterprise Clients</div>
+      </div>
+      <div class="ticker-item">
+        <div class="ticker-value"><span class="counter" data-target="3">0</span></div>
+        <div class="ticker-label">Core Disciplines</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">01 // About</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="reveal">
+          <strong>I design systems that make complex data accessible.</strong> With a focus on B2B product design, I work at the intersection of information architecture, data visualization, and systematic design thinking.
+        </p>
+        <p class="reveal reveal-delay-1">
+          From medical device dashboards to enterprise cloud interfaces, I bring structure and clarity to products that serve millions of users. Every pixel is a data point. Every interaction is measurable.
+        </p>
+        <p class="reveal reveal-delay-2">
+          My approach is rooted in research-driven methodology, systematic component architecture, and a relentless focus on reducing cognitive load for end users working with dense, critical information.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-block reveal" data-index="01">
+          <div class="skill-name">B2B Product Design</div>
+          <div class="skill-detail">Enterprise SaaS, workflows, dashboards</div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-block reveal reveal-delay-1" data-index="02">
+          <div class="skill-name">Design Systems</div>
+          <div class="skill-detail">Component libs, tokens, guidelines</div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-block reveal reveal-delay-2" data-index="03">
+          <div class="skill-name">Data Visualization</div>
+          <div class="skill-detail">Charts, metrics, real-time dashboards</div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-block reveal reveal-delay-3" data-index="04">
+          <div class="skill-name">UX Research</div>
+          <div class="skill-detail">User interviews, testing, synthesis</div>
+          <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">02 // Projects</span>
+    </div>
+
+    <!-- View Toggle -->
+    <div class="view-toggle reveal">
+      <button class="view-btn active" data-view="grid">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="0.5" y="0.5" width="5" height="5" rx="0.5" stroke="currentColor"/><rect x="8.5" y="0.5" width="5" height="5" rx="0.5" stroke="currentColor"/><rect x="0.5" y="8.5" width="5" height="5" rx="0.5" stroke="currentColor"/><rect x="8.5" y="8.5" width="5" height="5" rx="0.5" stroke="currentColor"/></svg>
+        Grid
+      </button>
+      <button class="view-btn" data-view="list">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="0" y1="2" x2="14" y2="2" stroke="currentColor" stroke-width="1.5"/><line x1="0" y1="7" x2="14" y2="7" stroke="currentColor" stroke-width="1.5"/><line x1="0" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
+        List
+      </button>
+    </div>
+
+    <!-- Table header (list view only) -->
+    <div class="project-header reveal list-only">
+      <span>#</span>
+      <span>Project</span>
+      <span>Client</span>
+      <span>Date</span>
+      <span></span>
+    </div>
+
+    <!-- Projects list -->
+    <div class="projects-list">
+      <!-- Project 1 -->
+      <a href="/anduril/projects/polyps-metrics-dashboard/" class="project-row reveal">
+        <div class="project-cell project-index">001</div>
+        <div class="project-cell project-info">
+          <div class="project-title">Polyps Metrics Dashboard</div>
+          <div class="project-desc">Real-time clinical analytics &amp; quality metrics visualization</div>
+        </div>
+        <div class="project-cell project-company">Olympus</div>
+        <div class="project-cell project-date">Oct 2025</div>
+        <div class="project-cell project-arrow">&rarr;</div>
+      </a>
+      <a href="/anduril/projects/polyps-metrics-dashboard/" class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-card-index">PRJ_001</span>
+          <div class="project-card-meta">Olympus<br>Oct 2025</div>
+        </div>
+        <h3>Polyps Metrics Dashboard</h3>
+        <p>Designed a real-time clinical analytics dashboard for endoscopy professionals, enabling physicians to track polyp detection rates, procedure quality scores, and performance trends across facilities.</p>
+        <div class="project-tags">
+          <span class="tag">Data Visualization</span>
+          <span class="tag">Healthcare</span>
+          <span class="tag">Dashboard</span>
+          <span class="tag">Analytics</span>
+        </div>
+      </a>
+
+      <!-- Project 2 -->
+      <a href="/anduril/projects/bbps-cir-quality-metrics/" class="project-row reveal">
+        <div class="project-cell project-index">002</div>
+        <div class="project-cell project-info">
+          <div class="project-title">BBPS & CIR Quality Metrics</div>
+          <div class="project-desc">Endoscopy performance tracking &amp; benchmarking system</div>
+        </div>
+        <div class="project-cell project-company">Olympus</div>
+        <div class="project-cell project-date">Dec 2024</div>
+        <div class="project-cell project-arrow">&rarr;</div>
+      </a>
+      <a href="/anduril/projects/bbps-cir-quality-metrics/" class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-card-index">PRJ_002</span>
+          <div class="project-card-meta">Olympus<br>Dec 2024</div>
+        </div>
+        <h3>BBPS & CIR Quality Metrics</h3>
+        <p>Built a benchmarking system for Boston Bowel Preparation Scale and Cecal Intubation Rate metrics, providing gastroenterologists with actionable insights into procedural quality and compliance.</p>
+        <div class="project-tags">
+          <span class="tag">B2B Product</span>
+          <span class="tag">Metrics</span>
+          <span class="tag">Medical Device</span>
+          <span class="tag">UX Research</span>
+        </div>
+      </a>
+
+      <!-- Project 3 -->
+      <a href="/anduril/projects/icon-set-iconography-guidelines/" class="project-row reveal">
+        <div class="project-cell project-index">003</div>
+        <div class="project-cell project-info">
+          <div class="project-title">Icon Set & Iconography Guidelines</div>
+          <div class="project-desc">Scalable icon system with comprehensive usage documentation</div>
+        </div>
+        <div class="project-cell project-company">Amazon</div>
+        <div class="project-cell project-date">Aug 2023</div>
+        <div class="project-cell project-arrow">&rarr;</div>
+      </a>
+      <a href="/anduril/projects/icon-set-iconography-guidelines/" class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-card-index">PRJ_003</span>
+          <div class="project-card-meta">Amazon<br>Aug 2023</div>
+        </div>
+        <h3>Icon Set & Iconography Guidelines</h3>
+        <p>Created a comprehensive icon system with detailed guidelines for usage, sizing, and contextual application. Established standards for consistency across multiple product surfaces at scale.</p>
+        <div class="project-tags">
+          <span class="tag">Design Systems</span>
+          <span class="tag">Iconography</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Scale</span>
+        </div>
+      </a>
+
+      <!-- Project 4 -->
+      <a href="/anduril/projects/onedrive-sharing-dialog/" class="project-row reveal">
+        <div class="project-cell project-index">004</div>
+        <div class="project-cell project-info">
+          <div class="project-title">OneDrive Sharing Dialog</div>
+          <div class="project-desc">Reimagined file sharing experience for cloud collaboration</div>
+        </div>
+        <div class="project-cell project-company">Microsoft</div>
+        <div class="project-cell project-date">Jun 2022</div>
+        <div class="project-cell project-arrow">&rarr;</div>
+      </a>
+      <a href="/anduril/projects/onedrive-sharing-dialog/" class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-card-index">PRJ_004</span>
+          <div class="project-card-meta">Microsoft<br>Jun 2022</div>
+        </div>
+        <h3>OneDrive Sharing Dialog</h3>
+        <p>Redesigned the core sharing experience for OneDrive, simplifying permission management and collaboration workflows for millions of enterprise and consumer users worldwide.</p>
+        <div class="project-tags">
+          <span class="tag">Product Design</span>
+          <span class="tag">Cloud</span>
+          <span class="tag">Collaboration</span>
+          <span class="tag">Enterprise</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal">
+      <span class="mono">03 // Contact</span>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-heading reveal">
+          Let's Build<br>Something<br><span class="accent">Together.</span>
+        </h2>
+        <p class="contact-text reveal reveal-delay-1">
+          Currently open to new opportunities in B2B product design, design systems, and data-driven interfaces. Based in Seattle, open to remote.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:alex@zhurankou.com" class="contact-link reveal reveal-delay-2">
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">alex@zhurankou.com</div>
+            </div>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+          <a href="https://linkedin.com/in/zhurankou" target="_blank" rel="noopener" class="contact-link reveal reveal-delay-3">
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/zhurankou</div>
+            </div>
+            <span class="contact-link-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-info-panel reveal reveal-delay-2">
+        <h4>System Info</h4>
+        <div class="info-row">
+          <span class="info-key">Name</span>
+          <span class="info-value">Alex Zhurankou</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Role</span>
+          <span class="info-value">UX Designer</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Location</span>
+          <span class="info-value">Seattle, WA</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Specialization</span>
+          <span class="info-value">B2B / Data Viz / Systems</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Status</span>
+          <span class="info-value" style="color: var(--accent);">Available</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Timezone</span>
+          <span class="info-value">PST (UTC-8)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Last Updated</span>
+          <span class="info-value" id="lastUpdated">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span class="mono">&copy; 2026 Alex Zhurankou. All rights reserved.</span>
+  <span class="mono" id="localTime">—</span>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ——— SCROLL REVEAL ———
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Trigger skill bars inside this element
+        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        // Also check if the element itself is a skill bar container
+        if (entry.target.querySelector('.skill-bar-fill')) {
+          entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // ——— ANIMATED COUNTERS ———
+  const counters = document.querySelectorAll('.counter');
+  let countersAnimated = false;
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !countersAnimated) {
+        countersAnimated = true;
+        counters.forEach(counter => {
+          const target = parseInt(counter.dataset.target);
+          const duration = 2000;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(eased * target);
+            counter.textContent = current;
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  if (counters.length > 0) {
+    counterObserver.observe(counters[0].closest('.ticker-bar'));
+  }
+
+  // ——— SCROLL Y COORDINATE ———
+  const scrollYEl = document.getElementById('scrollY');
+  window.addEventListener('scroll', () => {
+    const y = Math.round(window.scrollY);
+    scrollYEl.textContent = String(y).padStart(4, '0');
+  }, { passive: true });
+
+  // ——— FPS COUNTER ———
+  const fpsEl = document.getElementById('fpsCounter');
+  let frameCount = 0;
+  let lastTime = performance.now();
+
+  function measureFPS(now) {
+    frameCount++;
+    if (now - lastTime >= 1000) {
+      fpsEl.textContent = frameCount;
+      frameCount = 0;
+      lastTime = now;
+    }
+    requestAnimationFrame(measureFPS);
+  }
+  requestAnimationFrame(measureFPS);
+
+  // ——— LIVE CLOCK ———
+  const localTimeEl = document.getElementById('localTime');
+  const lastUpdatedEl = document.getElementById('lastUpdated');
+
+  function updateTime() {
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('en-US', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+    const dateStr = now.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
+    localTimeEl.textContent = 'LOCAL: ' + timeStr + ' PST';
+    lastUpdatedEl.textContent = dateStr;
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+
+  // ——— VIEW TOGGLE ———
+  const viewBtns = document.querySelectorAll('.view-btn');
+  const projectsList = document.querySelector('.projects-list');
+  const projectHeader = document.querySelector('.project-header.list-only');
+
+  viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      viewBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const view = btn.dataset.view;
+      if (view === 'list') {
+        projectsList.classList.add('view-list');
+        projectHeader.classList.add('show');
+      } else {
+        projectsList.classList.remove('view-list');
+        projectHeader.classList.remove('show');
+      }
+    });
+  });
+
+  // ——— SMOOTH SCROLL FOR NAV LINKS ———
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
